@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="ru"><head><link rel="stylesheet" href="https://antilatency.github.io/style.css"><script src="https://antilatency.github.io/script.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"><title>Alt</title></head><body class="TemplateRegularMaterial"><script>Behaviour.Initialize("TemplateRegularMaterial")</script><nav class="menu LeftSideMenu" id="LeftSideMenu"><a class="text noselect" href="https://antilatency.github.io/Root/Index_ru.html" title="Компания мечты" style="font-family: 'antilatency' !important; font-size: 40px; color: black;"><span style="color: #ACC435">a</span><span>l</span></a><a class="text" href="https://antilatency.github.io/Root/Index_ru.html" title="Компания мечты">Antilatency</a><a class="text" href="https://antilatency.github.io/Terms/Antilatency_Device_Network_ru.html" title="Библиотека для комуникации с устройствами Antilatency. Позволяет находить устройства среди подключенных, отслеживать подключение новых устройств, запускать задачи на устройствах, а также обновлять прошивку.">Antilatency Device Network</a><a class="text" href="https://antilatency.github.io/Terms/Alt_ru.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">Alt</a><a class="text" href="https://antilatency.github.io/Internal/Debug_ru.html" title="На этой странице странице некоторые примеры использования движка.">Debug</a><a class="text" href="https://antilatency.github.io/Csml/CsmlPredefined/Diagnostics_ru.html" title="This page provide diagnostics information about website. This page is auto generated.">Diagnostics</a></nav><div id="Content" class="Content"><div class="header"><h1 class="title">Alt</h1><div style="overflow: hidden;" class="image"><img src="https://antilatency.github.io/Images/h8U8kBVjZTmpl73j4tXdvrejrUo/h8U8kBVjZTmpl73j4tXdvrejrUo2000.jpg"><script>Behaviour.Initialize("RoiImage",1.0,[25.0,68.0,29.0,78.0])</script></div><div class="text">На этой странице странице пока побудут некоторые примеры использования движка.</div></div><div class="section"><h2 class="title" id="<-Ссылки_на_секции"><-Ссылки на секции<a class="link" href="#<-Ссылки_на_секции" title="Heading anchor"></a></h2><div class="text">Оказывается даже такие ссылки валидные, но так делать не нужно</div></div><div class="section"><h2 class="title" id="Ссылки">Ссылки<a class="link" href="#Ссылки" title="Heading anchor"></a></h2><div class="text">Можно вставлять <a class="text" href="https://antilatency.github.io/Terms/Alt_ru.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">Alt</a> в текст</div><div class="text">Если навести на ссылку, то в подсказке будет описание страницы. Это полезно для терминов.</div></div><div class="section"><h2 class="title" id="Code">Code<a class="link" href="#Code" title="Heading anchor"></a></h2><div class="text">Файл с Github целиком.</div><a class="GitHubLink" target="_blank" href="https://github.com/antilatency/Antilatency.com/blob/b4b88e3f7a2a613fba9b7c25f7e14f1588c90d68/Program.cs#L1-L104"></a><div class="csharp code"><pre>
+<span class="keyword">using</span> System;
+<span class="keyword">using</span> System.Collections.Generic;
+<span class="keyword">using</span> System.IO;
+<span class="keyword">using</span> System.Linq;
+<span class="keyword">using</span> System.Linq.Expressions;
+<span class="keyword">using</span> System.Threading;
+<span class="keyword">using</span> Csml;
+
+<span class="keyword">namespace</span> Csml {
+
+
+
+    <span class="keyword">static</span> <span class="keyword">class</span> Program {
+        <span class="keyword">static</span> <span class="keyword">void</span> Main(<span class="keyword">string</span>[] args) {
+            <span class="preprocessorKeyword">#region</span> CsmlEngineMain
+
+            <span class="comment">//Set dot decimal separator</span>
+            <span class="keyword">var</span> customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = <span class="string">&quot;.&quot;</span>;
+            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = customCulture;
+
+            ScopeUtils.EnableGetOnce();
+
+            GitHub.RepositoryBranch.IgnorePinning = <span class="keyword">true</span>;
+
+
+            <span class="keyword">var</span> context = <span class="keyword">new</span> Context {
+                SourceRootDirectory = Path.GetDirectoryName(Utils.ThisFilePath()),
+                Watch = <span class="keyword">true</span>
+            };
+            Cache.RootDirectory = Path.Combine(context.SourceRootDirectory, <span class="string">&quot;cache&quot;</span>);
+
+            <span class="keyword">using</span> (<span class="keyword">new</span> Stopwatch(<span class="string">&quot;Verify&quot;</span>)) {
+                ScopeUtils.All.ForEach(x =&gt; x.Verify());
+            }
+
+
+            context.AssetsToCopy = Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.ttf&quot;</span>, SearchOption.AllDirectories)
+                .Concat(Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.woff&quot;</span>, SearchOption.AllDirectories))
+                .Concat(Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.woff2&quot;</span>, SearchOption.AllDirectories))
+                .Concat(Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.svg&quot;</span>, SearchOption.AllDirectories))
+                .ToHashSet();
+
+            <span class="comment">/*.ForEach(x =&gt; context.AssetsToCopy.Add(x));
+            .ForEach(x =&gt; context.AssetsToCopy.Add(x));
+            Directory.GetFiles(context.SourceRootDirectory, &quot;*.svg&quot;, SearchOption.AllDirectories).ForEach(x =&gt; context.AssetsToCopy.Add(x));*/</span>
+
+
+            <span class="keyword">if</span> (args.Length == <span class="number">1</span>) {
+                
+
+                context.OutputRootDirectory = args[<span class="number">0</span>];
+
+                context.BaseUri = <span class="keyword">new</span> Uri(context.OutputRootDirectory + <span class="string">&quot;/&quot;</span>);
+                context.CleanOutputRootDirectory();
+                context.CopyAssets();
+
+                SassProcessor sassProcessor = <span class="keyword">new</span> SassProcessor(
+                    context.SourceRootDirectory,
+                    context.OutputRootDirectory,
+                    <span class="string">&quot;Assets/style.scss&quot;</span>);
+                JavascriptProcessor javascriptProcessor = <span class="keyword">new</span> JavascriptProcessor(
+                    context.SourceRootDirectory,
+                    context.OutputRootDirectory);
+
+
+                ScopeUtils.All.ForEach(x =&gt; {
+                    <span class="comment">//Log.Info.Here($&quot;Generation Scope {x.GetType().Name}&quot;);</span>
+                    x.Generate(context);
+                    
+                    });
+
+                Console.WriteLine(<span class="string">&quot;All files generated!&quot;</span>);
+                Console.WriteLine();
+
+                <span class="keyword">if</span> (context.Watch) {
+                    Console.WriteLine(<span class="string">&quot;Watching for file changes. Press any key to exit.&quot;</span>);
+                    <span class="keyword">bool</span> reloadRequired = <span class="keyword">true</span>;
+
+                    <span class="keyword">string</span> ScssError = <span class="keyword">null</span>;
+                    <span class="keyword">while</span> (Console.KeyAvailable == <span class="keyword">false</span>) {
+                        <span class="keyword">if</span> (reloadRequired) {
+                            F5.Send();
+                            reloadRequired = <span class="keyword">false</span>;
+                        }
+                        <span class="keyword">if</span> (sassProcessor.Error != ScssError) {
+                            ScssError = sassProcessor.Error;
+                            Console.Clear();
+                            <span class="keyword">if</span> (ScssError != <span class="keyword">null</span>) {
+                                Console.WriteLine(<span class="string">&quot;Scss:&quot;</span> + ScssError);
+                            }
+                        }
+                        Thread.Sleep(<span class="number">250</span>);
+                        reloadRequired |= sassProcessor.UpdateIfChanged();
+                        reloadRequired |= javascriptProcessor.UpdateIfChanged();
+                    }
+
+                }
+            }
+            <span class="preprocessorKeyword">#endregion</span>
+        }
+    }
+}
+
+</pre></div><div class="text">Csml.Program.Main()</div><a class="GitHubLink" target="_blank" href="https://github.com/antilatency/Antilatency.com/blob/b4b88e3f7a2a613fba9b7c25f7e14f1588c90d68/Program.cs#L14-L101"></a><div class="csharp code"><pre>
+<span class="keyword">static</span> <span class="keyword">void</span> Main(<span class="keyword">string</span>[] args) {
+    <span class="preprocessorKeyword">#region</span> CsmlEngineMain
+
+    <span class="comment">//Set dot decimal separator</span>
+    <span class="keyword">var</span> customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+    customCulture.NumberFormat.NumberDecimalSeparator = <span class="string">&quot;.&quot;</span>;
+    System.Globalization.CultureInfo.DefaultThreadCurrentCulture = customCulture;
+
+    ScopeUtils.EnableGetOnce();
+
+    GitHub.RepositoryBranch.IgnorePinning = <span class="keyword">true</span>;
+
+
+    <span class="keyword">var</span> context = <span class="keyword">new</span> Context {
+        SourceRootDirectory = Path.GetDirectoryName(Utils.ThisFilePath()),
+        Watch = <span class="keyword">true</span>
+    };
+    Cache.RootDirectory = Path.Combine(context.SourceRootDirectory, <span class="string">&quot;cache&quot;</span>);
+
+    <span class="keyword">using</span> (<span class="keyword">new</span> Stopwatch(<span class="string">&quot;Verify&quot;</span>)) {
+        ScopeUtils.All.ForEach(x =&gt; x.Verify());
+    }
+
+
+    context.AssetsToCopy = Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.ttf&quot;</span>, SearchOption.AllDirectories)
+        .Concat(Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.woff&quot;</span>, SearchOption.AllDirectories))
+        .Concat(Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.woff2&quot;</span>, SearchOption.AllDirectories))
+        .Concat(Directory.GetFiles(context.SourceRootDirectory, <span class="string">&quot;*.svg&quot;</span>, SearchOption.AllDirectories))
+        .ToHashSet();
+
+    <span class="comment">/*.ForEach(x =&gt; context.AssetsToCopy.Add(x));
+    .ForEach(x =&gt; context.AssetsToCopy.Add(x));
+    Directory.GetFiles(context.SourceRootDirectory, &quot;*.svg&quot;, SearchOption.AllDirectories).ForEach(x =&gt; context.AssetsToCopy.Add(x));*/</span>
+
+
+    <span class="keyword">if</span> (args.Length == <span class="number">1</span>) {
+        
+
+        context.OutputRootDirectory = args[<span class="number">0</span>];
+
+        context.BaseUri = <span class="keyword">new</span> Uri(context.OutputRootDirectory + <span class="string">&quot;/&quot;</span>);
+        context.CleanOutputRootDirectory();
+        context.CopyAssets();
+
+        SassProcessor sassProcessor = <span class="keyword">new</span> SassProcessor(
+            context.SourceRootDirectory,
+            context.OutputRootDirectory,
+            <span class="string">&quot;Assets/style.scss&quot;</span>);
+        JavascriptProcessor javascriptProcessor = <span class="keyword">new</span> JavascriptProcessor(
+            context.SourceRootDirectory,
+            context.OutputRootDirectory);
+
+
+        ScopeUtils.All.ForEach(x =&gt; {
+            <span class="comment">//Log.Info.Here($&quot;Generation Scope {x.GetType().Name}&quot;);</span>
+            x.Generate(context);
+            
+            });
+
+        Console.WriteLine(<span class="string">&quot;All files generated!&quot;</span>);
+        Console.WriteLine();
+
+        <span class="keyword">if</span> (context.Watch) {
+            Console.WriteLine(<span class="string">&quot;Watching for file changes. Press any key to exit.&quot;</span>);
+            <span class="keyword">bool</span> reloadRequired = <span class="keyword">true</span>;
+
+            <span class="keyword">string</span> ScssError = <span class="keyword">null</span>;
+            <span class="keyword">while</span> (Console.KeyAvailable == <span class="keyword">false</span>) {
+                <span class="keyword">if</span> (reloadRequired) {
+                    F5.Send();
+                    reloadRequired = <span class="keyword">false</span>;
+                }
+                <span class="keyword">if</span> (sassProcessor.Error != ScssError) {
+                    ScssError = sassProcessor.Error;
+                    Console.Clear();
+                    <span class="keyword">if</span> (ScssError != <span class="keyword">null</span>) {
+                        Console.WriteLine(<span class="string">&quot;Scss:&quot;</span> + ScssError);
+                    }
+                }
+                Thread.Sleep(<span class="number">250</span>);
+                reloadRequired |= sassProcessor.UpdateIfChanged();
+                reloadRequired |= javascriptProcessor.UpdateIfChanged();
+            }
+
+        }
+    }
+    <span class="preprocessorKeyword">#endregion</span>
+}
+
+</pre></div></div><div class="section"><h2 class="title" id="Api">Api<a class="link" href="#Api" title="Heading anchor"></a></h2></div></div><nav class="language-menu"><a class="text" href="https://antilatency.github.io/Terms/Alt_en.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">English</a><a class="text" href="https://antilatency.github.io/Terms/Alt_ru.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">Русский</a><a class="text" href="https://antilatency.github.io/Terms/Alt_zh.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">中文</a></nav></body></html>
