@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="ru"><head><link rel="stylesheet" href="https://antilatency.github.io/style.css"><script src="https://antilatency.github.io/script.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"><title>Alt</title></head><body class="TemplateRegularMaterial"><script>Behaviour.Initialize("TemplateLeftSideMenu",800,64)</script><nav class="menu LeftSideMenu" id="LeftSideMenu"><a class="text noselect" href="https://antilatency.github.io/Root/Index_en.html" title="" style="font-family: 'antilatency' !important; font-size: 40px; color: black;"><span style="color: #ACC435">a</span><span>l</span></a><a class="text" href="https://antilatency.github.io/Root/Index_en.html" title="">Antilatency</a><a class="text" href="https://antilatency.github.io/Store/PresetEditor_en.html" title="Welcome to Antilatency store!">Store</a><a class="text" href="https://antilatency.github.io/Sdk/Configurator_en.html" title="На этой странице вы сможите &quot;Приготовить&quot; Sdk, выбрав платформу и добавив ингредиенты на ваш вкус">Sdk</a><a class="text" href="https://antilatency.github.io/Terms/Antilatency_Device_Network_en.html" title="Antilatency Device Network - eng.">Antilatency Device Network</a><a class="text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">Alt</a><a class="text" href="https://antilatency.github.io/Internal/Debug_en.html" title="На этой странице странице некоторые примеры использования движка.">Debug</a><a class="text" href="https://antilatency.github.io/Csml/CsmlPredefined/Diagnostics_en.html" title="This page provide diagnostics information about website. This page is auto generated.">Diagnostics</a></nav><div id="Content" class="Content"><div class="header"><h1 class="title">Alt</h1><div style="overflow: hidden;" class="image"><img src="https://antilatency.github.io/Images/h8U8kBVjZTmpl73j4tXdvrejrUo/h8U8kBVjZTmpl73j4tXdvrejrUo2000.jpg"><script>Behaviour.Initialize("RoiImage",1.0,[25.0,68.0,29.0,78.0])</script></div><div class="text">На этой странице странице пока побудут некоторые примеры использования движка.</div></div><div class="section"><h2 class="title" id="<-Ссылки_на_секции"><-Ссылки на секции<a class="link" href="#<-Ссылки_на_секции" title="Heading anchor"></a></h2><div class="text">Оказывается даже такие ссылки валидные, но так делать не нужно</div></div><div class="section"><h2 class="title" id="Ссылки">Ссылки<a class="link" href="#Ссылки" title="Heading anchor"></a></h2><div class="text">Можно вставлять <a class="text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">Alt</a> в текст</div><div class="text">Если навести на ссылку, то в подсказке будет описание страницы. Это полезно для терминов.</div></div><div class="section"><h2 class="title" id="Code">Code<a class="link" href="#Code" title="Heading anchor"></a></h2><div class="text">Файл с Github целиком.</div><a class="GitHubLink" target="_blank" href="https://github.com/antilatency/Antilatency.com/blob/6947ca13f56157be8c6653a0ce3686f2629c7461/Program.cs#L1-L304"></a><div class="csharp code"><pre>
+<span class="keyword">using</span> System;
+<span class="keyword">using</span> System.Collections.Generic;
+<span class="keyword">using</span> System.IO;
+<span class="keyword">using</span> System.Linq;
+<span class="keyword">using</span> System.Linq.Expressions;
+<span class="keyword">using</span> System.Threading;
+<span class="keyword">using</span> Csml;
+
+<span class="keyword">namespace</span> Csml {
+
+    <span class="keyword">public</span> <span class="keyword">class</span> Application {
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> ExecutablePath;
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> ProjectRootDirectory;
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> OutputRootDirectory;
+        <span class="keyword">public</span> <span class="keyword">static</span> Uri BaseUri;
+
+        <span class="keyword">static</span> SassProcessor sassProcessor;
+        <span class="keyword">static</span> JavascriptProcessor javascriptProcessor;
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> TitlePrefix { <span class="keyword">get</span>; <span class="keyword">internal</span> <span class="keyword">set</span>; }
+
+        <span class="keyword">static</span> Application() {
+            <span class="keyword">var</span> customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = <span class="string">&quot;.&quot;</span>;
+            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = customCulture;
+            ScopeUtils.EnableGetOnce();
+
+            ExecutablePath = System.Reflection.Assembly.GetEntryAssembly().Location;
+            ProjectRootDirectory = Path.GetFullPath(<span class="string">&quot;..&quot;</span>, Path.GetDirectoryName(ExecutablePath));
+            GitHub.FileCache.RootDirectory = Path.Combine(ProjectRootDirectory, <span class="string">&quot;.cache/gitHubFileCache&quot;</span>);
+        }
+
+        <span class="keyword">static</span> <span class="keyword">void</span> Main(<span class="keyword">string</span>[] args) {
+            <span class="keyword">var</span> scriptWarmUp = CommandLineScript.WarmUpAsync();
+
+            <span class="comment">/*using (new Stopwatch(&quot;Verify&quot;)) {
+                ScopeUtils.All.ForEach(x =&gt; x.Verify());
+            }*/</span>
+
+            scriptWarmUp.Wait();
+            CommandLineScript.ExecuteCommandLineArguments&lt;Application&gt;(args);
+        }
+
+        <span class="comment">//private static CopyFonts</span>
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> DeployToGithubIoWorkingCopy(<span class="keyword">string</span> workingCopyDirectory) {
+            Log.Info.Here($<span class="string">&quot;DeployToGithubIoWorkingCopy({workingCopyDirectory})&quot;</span>);
+            
+            OutputRootDirectory = workingCopyDirectory;
+            BaseUri = <span class="keyword">new</span> Uri(<span class="string">&quot;https://&quot;</span> +Path.GetFileName(workingCopyDirectory)+<span class="string">&quot;/&quot;</span>);            
+            
+            ImageCache.RootDirectory = Path.Combine(OutputRootDirectory, <span class="string">&quot;Images&quot;</span>);
+            ImageCache.RootUri = <span class="keyword">new</span> Uri(BaseUri, <span class="string">&quot;Images/&quot;</span>);
+            YoutubeVideoCache.RootDirectory = Path.Combine(OutputRootDirectory, <span class="string">&quot;Videos&quot;</span>);
+            YoutubeVideoCache.RootUri = <span class="keyword">new</span> Uri(BaseUri, <span class="string">&quot;Videos/&quot;</span>);
+            DownloadableCache.RootDirectory = Path.Combine(OutputRootDirectory, <span class="string">&quot;Downloads&quot;</span>);
+            DownloadableCache.RootUri = <span class="keyword">new</span> Uri(BaseUri, <span class="string">&quot;Downloads/&quot;</span>);
+
+            CleanUpGitHubIoWorkingCopy(OutputRootDirectory);
+
+            Log.Info.Here($<span class="string">&quot;DeployToGithubIoWorkingCopy: Fonts;Sass;Javascript&quot;</span>);
+            CopyFonts();
+            BeginSass();
+            BeginJavascript();
+
+            Log.Info.Here($<span class="string">&quot;DeployToGithubIoWorkingCopy: Generate...&quot;</span>);
+            Context context = <span class="keyword">new</span> Context();
+            ScopeUtils.All.ForEach(x =&gt; {
+                x.Generate(context);
+            });
+        }
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> DeveloperBuildWatchJsCss(<span class="keyword">string</span> outputDirectory) {
+            DeveloperBuild(outputDirectory,<span class="keyword">true</span>);
+        }
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> DeveloperBuild(<span class="keyword">string</span> outputDirectory, <span class="keyword">bool</span> watch = <span class="keyword">false</span>) {
+            Log.Info.Here($<span class="string">&quot;DeveloperBuild({outputDirectory},{watch})&quot;</span>);
+            OutputRootDirectory = outputDirectory;
+            BaseUri = <span class="keyword">new</span> Uri(OutputRootDirectory + <span class="string">&quot;/&quot;</span>);
+
+            ImageCache.RootDirectory = Path.Combine(ProjectRootDirectory, <span class="string">&quot;.cache/images&quot;</span>);
+            YoutubeVideoCache.RootDirectory = Path.Combine(ProjectRootDirectory, <span class="string">&quot;.cache/videos&quot;</span>);
+            DownloadableCache.RootDirectory = Path.Combine(ProjectRootDirectory, <span class="string">&quot;.cache/downloadable&quot;</span>);
+            GitHub.RepositoryBranch.IgnorePinning = <span class="keyword">true</span>;
+
+
+            CleanUpDirectory(OutputRootDirectory);
+
+            <span class="keyword">if</span> (watch) {
+                TitlePrefix = F5.Prefix;
+            }
+
+            Log.Info.Here($<span class="string">&quot;DeveloperBuild: Fonts;Sass;Javascript&quot;</span>);
+            CopyFonts();
+            BeginSass();
+            BeginJavascript();
+
+            Log.Info.Here($<span class="string">&quot;DeveloperBuild: Generate...&quot;</span>);
+            
+            Context context = <span class="keyword">new</span> Context();
+            ScopeUtils.All.ForEach(x =&gt; {
+                x.Generate(context);
+            });
+            Log.Info.Here($<span class="string">&quot;DeveloperBuild: Done!&quot;</span>);
+
+            <span class="keyword">if</span> (watch) {
+                Log.Info.Here($<span class="string">&quot;DeveloperBuild: Watching for file change (*.scss, *.js)...&quot;</span>);
+                Watch();
+            } <span class="keyword">else</span> {
+                F5.Send();
+            }
+
+        }
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> CleanUpGitHubIoWorkingCopy(<span class="keyword">string</span> directory) {
+            CleanUpDirectory(directory, (path) =&gt; {
+                <span class="keyword">if</span> (directory+<span class="string">&quot;\\index.html&quot;</span> == path) <span class="keyword">return</span> <span class="keyword">false</span>;
+                <span class="keyword">var</span> name = Path.GetFileName(path);
+                <span class="keyword">if</span> (name.StartsWith(<span class="string">&quot;.&quot;</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;
+                <span class="keyword">return</span> <span class="keyword">true</span>;
+            });
+
+        }
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> CleanUpDirectory(<span class="keyword">string</span> directory, Func&lt;<span class="keyword">string</span>,<span class="keyword">bool</span>&gt; conditionToDelete) {
+            <span class="keyword">if</span> (!Directory.Exists(directory)) {
+                Utils.CreateDirectory(directory);
+                <span class="keyword">return</span>;
+            }
+            <span class="keyword">foreach</span> (<span class="keyword">var</span> d <span class="keyword">in</span> Directory.GetDirectories(directory)) {                
+                <span class="keyword">if</span> (conditionToDelete(d))
+                    Utils.DeleteDirectory(d);            
+            }
+            <span class="keyword">foreach</span> (<span class="keyword">var</span> f <span class="keyword">in</span> Directory.GetFiles(directory)) {
+                <span class="keyword">if</span> (conditionToDelete(f))
+                    File.Delete(f);
+            }
+        }
+
+        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> CleanUpDirectory(<span class="keyword">string</span> directory) {
+            <span class="keyword">if</span> (!Directory.Exists(directory)) {
+                Utils.CreateDirectory(directory);
+                <span class="keyword">return</span>;
+            }
+            <span class="keyword">foreach</span> (<span class="keyword">var</span> d <span class="keyword">in</span> Directory.GetDirectories(directory)) {
+                Utils.DeleteDirectory(d);
+            }
+            <span class="keyword">foreach</span> (<span class="keyword">var</span> f <span class="keyword">in</span> Directory.GetFiles(directory)) {
+                File.Delete(f);
+            }
+        }
+
+
+        <span class="keyword">static</span> <span class="keyword">void</span> Watch() {
+            <span class="keyword">bool</span> reloadRequired = <span class="keyword">true</span>;
+            <span class="keyword">string</span> ScssError = <span class="keyword">null</span>;
+            <span class="keyword">while</span> (Console.KeyAvailable == <span class="keyword">false</span>) {
+                <span class="keyword">if</span> (reloadRequired) {
+                    F5.Send();
+                    reloadRequired = <span class="keyword">false</span>;
+                }
+                <span class="keyword">if</span> (sassProcessor.Error != ScssError) {
+                    ScssError = sassProcessor.Error;
+                    Console.Clear();
+                    <span class="keyword">if</span> (ScssError != <span class="keyword">null</span>) {
+                        Console.WriteLine(<span class="string">&quot;Scss:&quot;</span> + ScssError);
+                    }
+                }
+                Thread.Sleep(<span class="number">250</span>);
+                reloadRequired |= sassProcessor.UpdateIfChanged();
+                reloadRequired |= javascriptProcessor.UpdateIfChanged();
+            }
+        }
+
+        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> CopyFonts() {
+            <span class="keyword">var</span> sourceDirectory = Path.Combine(ProjectRootDirectory, <span class="string">&quot;Fonts&quot;</span>);
+            <span class="keyword">var</span> destDirectory = Path.Combine(OutputRootDirectory, <span class="string">&quot;Fonts&quot;</span>);
+            <span class="keyword">var</span> files = Directory.GetFiles(sourceDirectory, <span class="string">&quot;*&quot;</span>, SearchOption.AllDirectories);
+
+            List&lt;<span class="keyword">string</span>&gt; extensions = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;() { <span class="string">&quot;.ttf&quot;</span>, <span class="string">&quot;.woff&quot;</span>, <span class="string">&quot;.woff2&quot;</span>, <span class="string">&quot;.svg&quot;</span>, <span class="string">&quot;.eot&quot;</span> };
+
+            <span class="keyword">foreach</span> (<span class="keyword">var</span> f <span class="keyword">in</span> files.Where(x =&gt; extensions.Contains(Path.GetExtension(x)))) {
+                <span class="keyword">var</span> relativePath = Path.GetRelativePath(sourceDirectory, f);
+                <span class="keyword">var</span> destPath = Path.Combine(destDirectory, relativePath);
+                <span class="keyword">if</span> (File.Exists(destPath)) <span class="keyword">continue</span>;
+
+                <span class="keyword">var</span> subDirectory = Path.GetDirectoryName(relativePath);
+                Utils.CreateDirectory(Path.Combine(destDirectory, subDirectory));
+                File.Copy(f, destPath);
+            }
+        }
+
+        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> BeginSass() {
+            sassProcessor = <span class="keyword">new</span> SassProcessor(
+                ProjectRootDirectory,
+                OutputRootDirectory,
+                <span class="string">&quot;Style.scss&quot;</span>);
+        }
+        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> BeginJavascript() {
+            javascriptProcessor = <span class="keyword">new</span> JavascriptProcessor(
+                ProjectRootDirectory,
+                OutputRootDirectory);
+        }
+
+
+        <span class="keyword">static</span> <span class="keyword">class</span> DeveloperBuild_ {
+            <span class="keyword">static</span> <span class="keyword">async</span> System.Threading.Tasks.Task Main(<span class="keyword">string</span>[] args) {
+
+
+                
+                
+                    
+                <span class="keyword">try</span> {
+
+
+                    <span class="comment">//Set dot decimal separator</span>
+
+
+                    
+
+
+                    <span class="comment">/*var context = new Context {
+                        SourceRootDirectory = Path.GetDirectoryName(Utils.ThisFilePath()),
+                        Watch = true
+                    };
+                    //Cache.RootDirectory = Path.Combine(context.SourceRootDirectory, &quot;cache&quot;);
+
+                    using (new Stopwatch(&quot;Verify&quot;)) {
+                        ScopeUtils.All.ForEach(x =&gt; x.Verify());
+                    }
+
+
+                    context.AssetsToCopy = Directory.GetFiles(context.SourceRootDirectory, &quot;*.ttf&quot;, SearchOption.AllDirectories)
+                        .Concat(Directory.GetFiles(context.SourceRootDirectory, &quot;*.woff&quot;, SearchOption.AllDirectories))
+                        .Concat(Directory.GetFiles(context.SourceRootDirectory, &quot;*.woff2&quot;, SearchOption.AllDirectories))
+                        .Concat(Directory.GetFiles(context.SourceRootDirectory, &quot;*.svg&quot;, SearchOption.AllDirectories))
+                        .ToHashSet();*/</span>
+
+                    <span class="comment">/*.ForEach(x =&gt; context.AssetsToCopy.Add(x));
+                    .ForEach(x =&gt; context.AssetsToCopy.Add(x));
+                    Directory.GetFiles(context.SourceRootDirectory, &quot;*.svg&quot;, SearchOption.AllDirectories).ForEach(x =&gt; context.AssetsToCopy.Add(x));*/</span>
+
+                    <span class="comment">/*
+                    if (args.Length == 1) {
+
+
+                        context.OutputRootDirectory = args[0];
+
+                        context.BaseUri = new Uri(context.OutputRootDirectory + &quot;/&quot;);
+                        context.CleanOutputRootDirectory();
+                        context.CopyAssets();
+
+                        SassProcessor sassProcessor = new SassProcessor(
+                            context.SourceRootDirectory,
+                            context.OutputRootDirectory,
+                            &quot;Assets/style.scss&quot;);
+                        JavascriptProcessor javascriptProcessor = new JavascriptProcessor(
+                            context.SourceRootDirectory,
+                            context.OutputRootDirectory);
+
+
+                        ScopeUtils.All.ForEach(x =&gt; {
+                            //Log.Info.Here($&quot;Generation Scope {x.GetType().Name}&quot;);
+                            x.Generate(context);
+
+                        });
+
+                        Console.WriteLine(&quot;All files generated!&quot;);
+                        Console.WriteLine();
+
+                        if (context.Watch) {
+                            Console.WriteLine(&quot;Watching for file changes. Press any key to exit.&quot;);
+                            bool reloadRequired = true;
+
+                            string ScssError = null;
+                            while (Console.KeyAvailable == false) {
+                                if (reloadRequired) {
+                                    F5.Send();
+                                    reloadRequired = false;
+                                }
+                                if (sassProcessor.Error != ScssError) {
+                                    ScssError = sassProcessor.Error;
+                                    Console.Clear();
+                                    if (ScssError != null) {
+                                        Console.WriteLine(&quot;Scss:&quot; + ScssError);
+                                    }
+                                }
+                                Thread.Sleep(250);
+                                reloadRequired |= sassProcessor.UpdateIfChanged();
+                                reloadRequired |= javascriptProcessor.UpdateIfChanged();
+                            }
+
+                        }
+                    }*/</span>
+                }
+                <span class="keyword">catch</span> {
+                    Console.ReadLine();
+                }
+            }
+        }
+    }
+}
+
+</pre></div><div class="text">Csml.Program.Main()</div><a class="GitHubLink" target="_blank" href="https://github.com/antilatency/Antilatency.com/blob/6947ca13f56157be8c6653a0ce3686f2629c7461/Program.cs#L33-L42"></a><div class="csharp code"><pre>
+<span class="keyword">static</span> <span class="keyword">void</span> Main(<span class="keyword">string</span>[] args) {
+    <span class="keyword">var</span> scriptWarmUp = CommandLineScript.WarmUpAsync();
+
+    <span class="comment">/*using (new Stopwatch(&quot;Verify&quot;)) {
+        ScopeUtils.All.ForEach(x =&gt; x.Verify());
+    }*/</span>
+
+    scriptWarmUp.Wait();
+    CommandLineScript.ExecuteCommandLineArguments&lt;Application&gt;(args);
+}
+
+</pre></div></div><div class="section"><h2 class="title" id="Api">Api<a class="link" href="#Api" title="Heading anchor"></a></h2></div></div><nav class="language-menu"><a class="text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">English</a><a class="text" href="https://antilatency.github.io/Hardware/Alt_ru.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">Русский</a><a class="text" href="https://antilatency.github.io/Hardware/Alt_zh.html" title="На этой странице странице пока побудут некоторые примеры использования движка.">中文</a></nav></body></html>
