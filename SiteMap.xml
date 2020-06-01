@@ -61,6 +61,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/ExtensionBoard_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Hardware/SocketUsbRadio_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/SocketUsbRadio_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketUsbRadio_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/SocketUsbRadio_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/SocketUsbRadio_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketUsbRadio_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Hardware/Tag_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/Tag_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/Tag_ru.html"/>
@@ -69,6 +79,26 @@
 	<loc>https://antilatency.github.io/Hardware/Tag_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/Tag_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/Tag_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/AntilatencyRadioProtocolDevicesList_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/AntilatencyRadioProtocolDevicesList_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/AntilatencyRadioProtocolDevicesList_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/AntilatencyRadioProtocolDevicesList_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/AntilatencyRadioProtocolDevicesList_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/AntilatencyRadioProtocolDevicesList_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/ConfiguringRadioDevices_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/ConfiguringRadioDevices_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/ConfiguringRadioDevices_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/ConfiguringRadioDevices_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/ConfiguringRadioDevices_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/ConfiguringRadioDevices_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Sdk/Configurator_en.html</loc>
@@ -89,6 +119,16 @@
 	<loc>https://antilatency.github.io/Software/Antilatency_Hardware_Extension_Interface_Library_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/Antilatency_Hardware_Extension_Interface_Library_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/Antilatency_Hardware_Extension_Interface_Library_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyIpNetwork_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyIpNetwork_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyIpNetwork_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyIpNetwork_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyIpNetwork_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyIpNetwork_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Software/Antilatency_Service_en.html</loc>
@@ -129,6 +169,36 @@
 	<loc>https://antilatency.github.io/Terms/Antilatency_Hardware_Extension_Interface_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Antilatency_Hardware_Extension_Interface_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Antilatency_Hardware_Extension_Interface_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Socket_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Socket_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Socket_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Socket_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Socket_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Socket_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Antilatency_Ip_Tracking_Demo_Provider_RaspberryPi_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Antilatency_Ip_Tracking_Demo_Provider_RaspberryPi_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Antilatency_Ip_Tracking_Demo_Provider_RaspberryPi_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Antilatency_Ip_Tracking_Demo_Provider_RaspberryPi_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Antilatency_Ip_Tracking_Demo_Provider_RaspberryPi_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Antilatency_Ip_Tracking_Demo_Provider_RaspberryPi_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/OpenVR_Plugin_en.html</loc>
