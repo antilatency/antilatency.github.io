@@ -48,7 +48,7 @@
 
 @media only screen and (max-width: 816px) { .TemplateRegularMaterial > .Content > .header > .text, .TemplateRegularMaterial > .Content > .header > .title, .TemplateRegularMaterial > .Content > .section > .text, .TemplateRegularMaterial > .Content > .section > .title { padding-left: 8px; padding-right: 8px; } }
 
-.TemplateRegularMaterial > .Content .text b { font-weight: 500; color: #79be1e; text-align: left; white-space: nowrap; }
+.TemplateRegularMaterial > .Content .text b { font-weight: 500; color: #79be1e; text-align: left; }
 
 .TemplateLeftSideMenu > .LeftSideMenu, .TemplateLanding > .LeftSideMenu, .TemplateRegularMaterial > .LeftSideMenu { position: fixed; left: 0; top: 0; height: 100%; z-index: 1000; opacity: 0.96; background-color: white; border-right: 1px solid #ddd; }
 
@@ -166,7 +166,7 @@ table > tbody td:empty { border: 1px solid transparent; }
 
 .material .code { max-height: 80vh; overflow: auto; margin-bottom: 1rem; }
 
-code { font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; background-color: #faf6fa; color: black; font-size: 1rem; padding: 2px 5px; }
+code { font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif; background-color: #faf6fa; color: black; display: inline-block; font-size: 1rem; padding: 2px 5px; word-break: break-all; /*& + code { margin-left: -5px; padding-left: 0; }*/ }
 
 code > .type, code > .Type { color: #008080; text-decoration-color: #bcd9dc; }
 
@@ -346,6 +346,10 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 .bug { background-color: #f4dfd9; }
 
 .bug::before { color: #de350b; content: "\F00E4"; }
+
+.ToDo { display: inline-block; position: relative; width: 1px; height: 1em; background-color: red; }
+
+.ToDo:after { position: absolute; display: block; left: -10px; top: 100%; width: 20px; line-height: 20px; border-radius: 10px; background-color: red; color: white; text-align: center; vertical-align: central; font-size: 16px; font-family: "Material Design Icons"; content: "\F02A0"; }
 
 @font-face { font-family: 'Roboto'; src: local("Roboto Thin"), local("Roboto-Thin"), url("Fonts/roboto/Robotothin.woff2") format("woff2"), url("Fonts/roboto/Robotothin.woff") format("woff"), url("Fonts/roboto/Robotothin.ttf") format("truetype"); font-weight: 100; font-style: normal; }
 
