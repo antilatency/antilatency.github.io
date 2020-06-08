@@ -347,9 +347,27 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 
 .bug::before { color: #de350b; content: "\F00E4"; }
 
-.ToDo { display: inline-block; position: relative; width: 1px; height: 1em; background-color: red; }
+.ToDo { display: inline-block; position: relative; background-color: red; color: white; padding: 0 5px 0 5px; border-radius: 5px; }
 
-.ToDo:after { position: absolute; display: block; left: -10px; top: 100%; width: 20px; line-height: 20px; border-radius: 10px; background-color: red; color: white; text-align: center; vertical-align: central; font-size: 16px; font-family: "Material Design Icons"; content: "\F02A0"; }
+.ToDo:empty { width: 1px; height: 1em; padding: 0; }
+
+.ToDo:empty:after { position: absolute; display: block; left: -10px; top: 100%; width: 20px; line-height: 20px; border-radius: 10px; background-color: red; text-align: center; vertical-align: central; font-size: 16px; font-family: "Material Design Icons"; content: "\F02A0"; }
+
+.Footer { margin: 100px 0px 0px 0px; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; display: block; box-sizing: border-box; background-color: #e2e1e1; color: #6a737c; padding-top: 0; padding-bottom: 0; width: 100%; left: 0; bottom: 0; z-index: 10000; }
+
+.FooterContainer { box-sizing: border-box; width: 100%; margin: 0 auto; padding: 32px 12px 12px 12px; display: flex; flex-flow: row wrap; }
+
+.FooterMenu { display: flex; flex: 2 1 auto; flex-wrap: wrap; }
+
+.FooterMenuSection { padding: 0 12px 24px 0; flex: 1 0 auto; }
+
+.FooterMenuSection ul { margin: 0; }
+
+.FooterMenuSection ul li { list-style: none; }
+
+.FooterMenuSection ul li a { color: #848d95; padding: 4px 0; line-height: 1.30769231; display: inline-block; text-decoration: none; }
+
+.FooterMenuSection ul li a:hover { color: #bbc0c4; }
 
 @font-face { font-family: 'Roboto'; src: local("Roboto Thin"), local("Roboto-Thin"), url("Fonts/roboto/Robotothin.woff2") format("woff2"), url("Fonts/roboto/Robotothin.woff") format("woff"), url("Fonts/roboto/Robotothin.ttf") format("truetype"); font-weight: 100; font-style: normal; }
 
