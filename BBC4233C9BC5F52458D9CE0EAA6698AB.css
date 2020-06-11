@@ -357,22 +357,25 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 
 .ToDo:empty:after { position: absolute; display: block; left: -10px; top: 100%; width: 20px; line-height: 20px; border-radius: 10px; background-color: red; text-align: center; vertical-align: central; font-size: 16px; font-family: "Material Design Icons"; content: "\F02A0"; }
 
-.Footer { margin: 100px 0px 0px 0px; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; display: block; box-sizing: border-box; background-color: #e2e1e1; color: #6a737c; width: 100%; left: 0; bottom: 0; z-index: 10000; }
+.Footer { position: static; display: block; margin: 32px 0 0 0; }
+
+.Footer:before { position: absolute; display: block; background-color: #ddd; content: ""; height: 1px; width: 100%; left: 0; z-index: -1; }
 
 .FooterContainer { box-sizing: border-box; width: 100%; margin: 0 auto; padding: 32px 12px 12px 12px; display: flex; flex-flow: row wrap; }
 
-.FooterMenu { display: flex; flex: 2 1 auto; flex-wrap: wrap; }
+.FooterContainer .Grid { display: flex; flex: 2 1 auto; flex-wrap: wrap; }
 
-.FooterMenuSection { padding: 0 12px 24px 0; flex: 1 0 auto; }
+.FooterContainer .section .title { display: block; font-size: .83em; margin: 0 0 12px 0; font-weight: bold; }
 
-.FooterMenuSection ul { margin: 0; }
+.FooterContainer ul { margin: 0; }
 
-.FooterMenuSection ul li { list-style: none; }
+.FooterContainer ul li { list-style: none; }
 
-.FooterMenuSection ul li a { color: #848d95; padding: 4px 0; line-height: 1.30769231; display: inline-block; text-decoration: none; }
+.FooterContainer a { color: #848d95; padding: 4px 0; line-height: 1.30769231; display: inline-block; text-decoration: none; }
 
-.FooterMenuSection ul li a:hover { color: #bbc0c4; }
+.FooterContainer a:hover { color: #bbc0c4; }
 
+/*.FooterMenu { display: flex; flex: 2 1 auto; flex-wrap: wrap; } .FooterMenuSection { padding: 0 12px 24px 0; flex: 1 0 auto; }*/
 @font-face { font-family: 'Roboto'; src: local("Roboto Thin"), local("Roboto-Thin"), url("Fonts/roboto/Robotothin.woff2") format("woff2"), url("Fonts/roboto/Robotothin.woff") format("woff"), url("Fonts/roboto/Robotothin.ttf") format("truetype"); font-weight: 100; font-style: normal; }
 
 @font-face { font-family: 'Roboto'; src: local("Roboto Thin Italic"), local("Roboto-ThinItalic"), url("Fonts/roboto/Robotothinitalic.woff2") format("woff2"), url("Fonts/roboto/Robotothinitalic.woff") format("woff"), url("Fonts/roboto/Robotothinitalic.ttf") format("truetype"); font-weight: 100; font-style: italic; }

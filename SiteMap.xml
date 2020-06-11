@@ -231,6 +231,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/PrepareRaspberryPiSdCard_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Tutorials/RadioScan_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/RadioScan_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/RadioScan_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/RadioScan_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/RadioScan_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/RadioScan_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_ru.html"/>
