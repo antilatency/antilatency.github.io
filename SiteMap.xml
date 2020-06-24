@@ -181,6 +181,26 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Terms/Device_Properties_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Properties_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Properties_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Device_Properties_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Properties_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Properties_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Device_Tree_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Tree_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Tree_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Device_Tree_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Tree_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Tree_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Terms/Socket_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Socket_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Socket_ru.html"/>
@@ -189,6 +209,16 @@
 	<loc>https://antilatency.github.io/Terms/Socket_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Socket_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Socket_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Alt_HMD_Placement_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Alt_HMD_Placement_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Alt_HMD_Placement_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Alt_HMD_Placement_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Alt_HMD_Placement_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Alt_HMD_Placement_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/Antilatency_Ip_Tracking_Demo_Provider_RaspberryPi_en.html</loc>
@@ -209,6 +239,16 @@
 	<loc>https://antilatency.github.io/Tutorials/ConfiguringRadioDevices_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/ConfiguringRadioDevices_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/ConfiguringRadioDevices_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Device_Update_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Device_Update_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Device_Update_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Device_Update_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Device_Update_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Device_Update_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/Devkit_Tracking_Area_Setup_en.html</loc>
@@ -249,6 +289,16 @@
 	<loc>https://antilatency.github.io/Tutorials/RadioScan_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/RadioScan_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/RadioScan_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/Tracking_Area_Setup_en.html</loc>
