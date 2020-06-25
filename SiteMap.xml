@@ -41,6 +41,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Internal/Debug_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Internal/Alt_Debug_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Internal/Alt_Debug_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Internal/Alt_Debug_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Internal/Alt_Debug_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Internal/Alt_Debug_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Internal/Alt_Debug_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Hardware/Alt_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/Alt_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/Alt_ru.html"/>
