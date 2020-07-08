@@ -129,7 +129,7 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 
 .anchorsInside .GitHubLink ~ .code > pre { border-top-right-radius: 1.25rem; }
 
-.Downloadable { left: 0; right: 0; background-color: #f7f7f7; display: flex; flex-wrap: wrap; flex-direction: row; padding: 4px 0 0 4px; border-radius: 2px; /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; font-weight: normal; -webkit-font-smoothing: antialiased; box-sizing: inherit; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2); border: none; border-radius: 2px; height: 36px; line-height: 36px; padding: 0 16px; font-size: 14px; outline: 0; text-decoration: none; color: #fff; background-color: #acc435; text-align: center; letter-spacing: .5px; position: relative; cursor: pointer; display: inline-block; overflow: hidden; user-select: none; -webkit-tap-highlight-color: transparent; vertical-align: middle; z-index: 1; transition: .3s ease-out;*/ }
+.Downloadable { left: 0; right: 0; background-color: #f7f7f7; display: flex; flex-wrap: wrap; flex-direction: row; padding: 4px 0 0 4px; border-radius: 2px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; font-weight: normal; -webkit-font-smoothing: antialiased; box-sizing: inherit; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2); border: none; border-radius: 2px; height: 36px; line-height: 36px; padding: 0 16px; font-size: 14px; outline: 0; text-decoration: none; color: #fff; background-color: #acc435; text-align: center; letter-spacing: .5px; position: relative; cursor: pointer; display: inline-block; overflow: hidden; user-select: none; -webkit-tap-highlight-color: transparent; vertical-align: middle; z-index: 1; transition: .3s ease-out;*/ }
 
 .Downloadable > * { display: flex; height: 48px; justify-content: center; text-align: center; padding: 0px 16px 0px 16px; font: inherit; margin: 0 4px 4px 0; flex: 10; }
 
@@ -137,7 +137,7 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 
 .Downloadable > .Select { display: flex; font: inherit; border: 1px solid #ddd; }
 
-.Downloadable > .Button { display: flex; flex-direction: column; flex: 1; text-decoration: none; color: white; border-radius: 2px; background-color: #c3de3e; }
+.Downloadable > .Button { display: flex; flex-direction: column; flex: 1; text-decoration: none; color: white; border-radius: 2px; background-color: #c3de3e; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
 .Downloadable > .Button:hover { background-color: #d1e56a; }
 
@@ -223,7 +223,9 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 
 .List { margin-left: 20px; }
 
-.MaterialCard { position: relative; width: 100%; display: inline-block; height: 320px; border-radius: 2px; overflow: hidden; padding-bottom: 8px; text-decoration: none; -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; }
+.MaterialCard { position: relative; width: 100%; display: inline-block; height: 320px; border-radius: 2px; overflow: hidden; padding-bottom: 8px; text-decoration: none; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; }
+
+.MaterialCard:hover { -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .MaterialCard > .Title, .MaterialCard > .Text { text-align: left; margin-left: 16px; margin-right: 8px; }
 
@@ -234,6 +236,8 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 .MaterialCard > .Text { top: calc(65% + 1.5rem + 8px); margin-top: 8px; line-height: 1.1; font-size: 0.8rem; }
 
 .MaterialCard:before { position: absolute; display: block; bottom: 0px; right: 0px; left: 0px; z-index: 2; height: 32px; content: ""; background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(255, 255, 255, 0) 100%); }
+
+.MaterialCard:active { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
 .Panel { position: relative; border-radius: 8px; padding: 8px; padding-left: 42px; font-size: inherit; min-height: 24px; }
 
@@ -461,33 +465,49 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
     }
 
 }*/
+.PresetEditor .Price { position: relative; margin-left: 25px; display: inline; font-style: normal; font-size: small; }
+
+.PresetEditor .Price:after { content: " x"; }
+
+.PresetEditor .PriceTotal { position: relative; margin-left: 10px; display: inline; font-style: normal; font-size: small; }
+
+.PresetEditor .PriceTotal:before { content: "= "; }
+
+.PresetEditor .ItemCounter { position: relative; margin-left: 10px; width: 40px !important; display: inline; }
+
 .PresetEditor.ItemInTheAir .DropArea { position: absolute; display: inline-block; background-color: greenyellow; border-radius: 4px; border: 1px solid white; left: 0; right: 0; top: 0; bottom: 0; opacity: 0.2; }
 
 .PresetEditor.ItemInTheAir .DropArea:hover { opacity: 0.4; }
 
 .PresetEditor.ItemInTheAir .Dragged .DropArea { display: none; }
 
-.PresetEditor .PresetEditorTree item { overflow: hidden; background-color: #fff; position: relative; left: 0px; padding: 8px; margin: 8px; margin-left: 16px; float: left; border-radius: 2px; -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; /*&:before { //z-index: -1; position: absolute; display: block; background-color: #f00; top: 0; left: 0; right: 0; bottom: 0; content: ""; } &::before:hover { //z-index: -1; position: absolute; display: block; background-color: #0f0; top: 0; left: 0; right: 0; bottom: 0; content: ""; }*/ /*&:before:hover { background-color: #0f0; //@include box-shadow( 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)); }*/ /*&:hover > :hover { pointer-events: none; }*/ -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Likely future */ display: block; /*> item { margin-left: 16px; }*/ }
+.PresetEditor .PresetEditorTree item, .PresetEditor .ProductsView item { overflow: hidden; background-color: #fff; position: relative; left: 0px; padding: 8px; margin: 8px; margin-left: 16px; float: left; border-radius: 2px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; /*&:before { //z-index: -1; position: absolute; display: block; background-color: #f00; top: 0; left: 0; right: 0; bottom: 0; content: ""; } &::before:hover { //z-index: -1; position: absolute; display: block; background-color: #0f0; top: 0; left: 0; right: 0; bottom: 0; content: ""; }*/ /*&:before:hover { background-color: #0f0; //@include box-shadow( 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)); }*/ /*&:hover > :hover { pointer-events: none; }*/ -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Likely future */ display: block; /*> item { margin-left: 16px; }*/ }
 
-.PresetEditor .PresetEditorTree item .Title { display: inline; position: relative; z-index: 2; margin-left: 24px; }
+.PresetEditor .PresetEditorTree item .Title, .PresetEditor .ProductsView item .Title { display: inline; position: relative; z-index: 2; margin-left: 24px; }
 
-.PresetEditor .PresetEditorTree item.Group { background-color: #fafafa; font-style: italic; font-weight: normal; }
+.PresetEditor .PresetEditorTree item.Group, .PresetEditor .ProductsView item.Group { background-color: #fafafa; font-style: italic; font-weight: normal; }
 
-.PresetEditor .PresetEditorTree item.Product { font-style: normal; font-weight: bold; }
+.PresetEditor .PresetEditorTree item.Product, .PresetEditor .ProductsView item.Product { font-style: normal; font-weight: bold; }
 
-.PresetEditor .PresetEditorTree item.Product .Title { pointer-events: none; }
+.PresetEditor .PresetEditorTree item.Product .Title, .PresetEditor .ProductsView item.Product .Title { pointer-events: none; }
 
-.PresetEditor .PresetEditorTree item.Dragged { z-index: 10; position: fixed; margin-left: -1em; margin-top: -16px; }
+.PresetEditor .PresetEditorTree item.Dragged, .PresetEditor .ProductsView item.Dragged { z-index: 10; position: fixed; margin-left: -1em; margin-top: -16px; }
 
-.PresetEditor .PresetEditorTree item .DragPlaceholder { margin: 8px; margin-left: 16px; float: left; border-radius: 2px; background-color: #eee; }
+.PresetEditor .PresetEditorTree item .DragPlaceholder, .PresetEditor .ProductsView item .DragPlaceholder { margin: 8px; margin-left: 16px; float: left; border-radius: 2px; background-color: #eee; }
 
-.PresetEditor .PresetEditorTree item ui { position: relative; display: block; height: 32px; /*&.Selected { background-color: cornflowerblue }*/ }
+.PresetEditor .PresetEditorTree item ui, .PresetEditor .ProductsView item ui { position: relative; display: block; height: 32px; /*&.Selected { background-color: cornflowerblue }*/ }
 
-.PresetEditor .PresetEditorTree item ui .DragArea { position: absolute; display: block; top: -8px; left: -8px; right: -8px; bottom: 0; background-color: #ddd; cursor: move; border-bottom-right-radius: 10px; }
+.PresetEditor .PresetEditorTree item ui .DragArea, .PresetEditor .ProductsView item ui .DragArea { position: absolute; display: block; top: -8px; left: -8px; right: -8px; bottom: 0; background-color: #ddd; cursor: move; border-bottom-right-radius: 10px; }
 
-.PresetEditor .PresetEditorTree item ui .DragArea:after { margin: auto; display: block; padding: 7px; color: #666; font-family: "Material Design Icons"; content: "\F0626"; font-style: normal; font-weight: normal; }
+.PresetEditor .PresetEditorTree item ui .DragArea:after, .PresetEditor .ProductsView item ui .DragArea:after { margin: auto; display: block; padding: 7px; color: #666; font-family: "Material Design Icons"; content: "\F0626"; font-style: normal; font-weight: normal; }
 
-.PresetEditor .PresetEditorTree item ui input { width: 100%; }
+.PresetEditor .PresetEditorTree item ui input, .PresetEditor .ProductsView item ui input { width: 100%; }
+
+.PresetEditor .ProductsView .Price:after { content: ""; }
+
+.PresetEditor .ProductsView .PriceTotal { display: none; }
+
+.PresetEditor .ProductsView .ItemCounter { display: none; }
 
 .SdkConfigurator { max-width: 480px; margin: 0 auto 0 auto; padding-left: 28px; padding-right: 4px; }
 
