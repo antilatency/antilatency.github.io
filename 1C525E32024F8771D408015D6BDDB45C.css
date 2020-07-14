@@ -465,6 +465,42 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
     }
 
 }*/
+.PresetEditor .DragArea { cursor: move; }
+
+.PresetEditor .Hide { display: none !important; }
+
+.PresetEditor .SpinboxBody { display: flex; justify-content: center; align-items: center; padding: 2px; }
+
+.PresetEditor .SpinboxBody .SpinboxInput { position: relative; display: inline-block; margin: 0; font-weight: 400; font-size: medium; line-height: 20px; background: 0 0; padding: 0; border: none; text-align: center; vertical-align: middle; width: 30px; height: 20px; cursor: default; }
+
+.PresetEditor .SpinboxBody .SpinboxButtonInc { position: relative; display: inline-block; color: #000; font-weight: 400; font-size: medium; line-height: 20px; padding: 0; text-align: center; cursor: pointer; vertical-align: middle; width: 20px; height: 20px; border: 1px solid #aaa; border-radius: 100%; }
+
+.PresetEditor .SpinboxBody .SpinboxButtonInc:after { position: absolute; display: block; content: ''; width: 8px; height: 1px; background: #000; left: calc(50% - (8px/2)); top: 50%; }
+
+.PresetEditor .SpinboxBody .SpinboxButtonInc:before { position: absolute; display: block; content: ''; width: 8px; height: 1px; background: #000; left: calc(50% - (8px/2)); top: 50%; transform: rotate(-90deg); }
+
+.PresetEditor .SpinboxBody .SpinboxButtonDec { position: relative; display: inline-block; color: #000; font-weight: 400; font-size: medium; line-height: 20px; padding: 0; text-align: center; cursor: pointer; vertical-align: middle; width: 20px; height: 20px; border: 1px solid #aaa; border-radius: 100%; }
+
+.PresetEditor .SpinboxBody .SpinboxButtonDec:after { position: absolute; display: block; content: ''; width: 8px; height: 1px; background: #000; left: calc(50% - (8px/2)); top: 50%; }
+
+.PresetEditor .ProductCard, .PresetEditor .ProductCardPlaceholder { position: relative; width: 80px; }
+
+.PresetEditor .ProductCardContent { position: relative; }
+
+.PresetEditor .ProductCardContent .ProductCardImage { position: relative; display: block; border-radius: 2px 2px 0 0; left: 0; right: 0; top: 0; bottom: 0; width: 100%; pointer-events: none; }
+
+.PresetEditor .ProductCardContent .ProductCardInfoBody { position: absolute; bottom: 0px; right: 0px; max-width: 100%; padding: 4px; text-align: right; pointer-events: none; }
+
+.PresetEditor .ProductCardContent .ProductCardInfoBody .ProductCardPriceBreak { position: relative; display: block; margin: 0; color: #aaa; text-decoration: line-through; font-size: x-small; line-height: 1; font-weight: normal; }
+
+.PresetEditor .ProductCardContent .ProductCardInfoBody .ProductCardPrice { position: relative; display: block; margin: 0; color: #aaa; font-size: small; line-height: 1.2; font-weight: normal; }
+
+.PresetEditor .ProductCardContent .ProductCardInfoBody .ProductCardTitle { position: relative; display: block; margin: 0; color: #aaa; font-size: small; line-height: 1; font-weight: bold; }
+
+.PresetEditor .ProductCardContent .ProductCardPriceTotal { position: absolute; color: #aaa; font-size: x-small; font-weight: normal; top: 0px; left: 0px; max-width: 100%; padding: 4px; pointer-events: none; }
+
+.PresetEditor .ProductCardPlaceholder { float: left; background-color: #eee; }
+
 .PresetEditor .Price { position: relative; margin-left: 25px; display: inline; font-style: normal; font-size: small; }
 
 .PresetEditor .Price:after { content: " x"; }
@@ -475,13 +511,15 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor .ItemCounter { position: relative; margin-left: 10px; width: 40px !important; display: inline; }
 
+.PresetEditor .DragPlaceholder { margin: 2px; margin-left: 6px; float: left; border-radius: 2px; background-color: #eee; }
+
 .PresetEditor.ItemInTheAir .DropArea { position: absolute; display: inline-block; background-color: greenyellow; border-radius: 4px; border: 1px solid white; left: 0; right: 0; top: 0; bottom: 0; opacity: 0.2; }
 
 .PresetEditor.ItemInTheAir .DropArea:hover { opacity: 0.4; }
 
 .PresetEditor.ItemInTheAir .Dragged .DropArea { display: none; }
 
-.PresetEditor .PresetEditorTree item, .PresetEditor .ProductsView item { overflow: hidden; background-color: #fff; position: relative; left: 0px; padding: 8px; margin: 8px; margin-left: 16px; float: left; border-radius: 2px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; /*&:before { //z-index: -1; position: absolute; display: block; background-color: #f00; top: 0; left: 0; right: 0; bottom: 0; content: ""; } &::before:hover { //z-index: -1; position: absolute; display: block; background-color: #0f0; top: 0; left: 0; right: 0; bottom: 0; content: ""; }*/ /*&:before:hover { background-color: #0f0; //@include box-shadow( 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)); }*/ /*&:hover > :hover { pointer-events: none; }*/ -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Likely future */ display: block; /*> item { margin-left: 16px; }*/ }
+.PresetEditor .PresetEditorTree item, .PresetEditor .ProductsView item { overflow: hidden; background-color: #fff; position: relative; left: 0px; padding: 2px; margin: 2px; margin-left: 6px; float: left; border-radius: 2px; -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Likely future */ -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; display: block; /*> item { margin-left: 16px; }*/ }
 
 .PresetEditor .PresetEditorTree item .Title, .PresetEditor .ProductsView item .Title { display: inline; position: relative; z-index: 2; margin-left: 24px; }
 
@@ -493,11 +531,9 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor .PresetEditorTree item.Dragged, .PresetEditor .ProductsView item.Dragged { z-index: 10; position: fixed; margin-left: -1em; margin-top: -16px; }
 
-.PresetEditor .PresetEditorTree item .DragPlaceholder, .PresetEditor .ProductsView item .DragPlaceholder { margin: 8px; margin-left: 16px; float: left; border-radius: 2px; background-color: #eee; }
-
 .PresetEditor .PresetEditorTree item ui, .PresetEditor .ProductsView item ui { position: relative; display: block; height: 32px; /*&.Selected { background-color: cornflowerblue }*/ }
 
-.PresetEditor .PresetEditorTree item ui .DragArea, .PresetEditor .ProductsView item ui .DragArea { position: absolute; display: block; top: -8px; left: -8px; right: -8px; bottom: 0; background-color: #ddd; cursor: move; border-bottom-right-radius: 10px; }
+.PresetEditor .PresetEditorTree item ui .DragArea, .PresetEditor .ProductsView item ui .DragArea { position: absolute; display: block; top: -2px; left: -2px; right: -2px; bottom: 0; background-color: #ddd; cursor: move; border-bottom-right-radius: 10px; }
 
 .PresetEditor .PresetEditorTree item ui .DragArea:after, .PresetEditor .ProductsView item ui .DragArea:after { margin: auto; display: block; padding: 7px; color: #666; font-family: "Material Design Icons"; content: "\F0626"; font-style: normal; font-weight: normal; }
 
@@ -507,7 +543,13 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor .ProductsView .PriceTotal { display: none; }
 
+.PresetEditor .ProductsView .ProductCardPriceTotal { display: none; }
+
+.PresetEditor .ProductsView .SpinboxBody { display: none; }
+
 .PresetEditor .ProductsView .ItemCounter { display: none; }
+
+.PresetEditor .ProductsView .DropArea { display: none; }
 
 .SdkConfigurator { max-width: 480px; margin: 0 auto 0 auto; padding-left: 28px; padding-right: 4px; }
 

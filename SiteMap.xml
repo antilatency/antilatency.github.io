@@ -351,6 +351,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Tutorials/Valve_Index_Custom_Socket_Platform_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Valve_Index_Custom_Socket_Platform_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Valve_Index_Custom_Socket_Platform_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Valve_Index_Custom_Socket_Platform_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Valve_Index_Custom_Socket_Platform_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Valve_Index_Custom_Socket_Platform_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Csml/CsmlPredefined/NoTarget_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Csml/CsmlPredefined/NoTarget_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Csml/CsmlPredefined/NoTarget_ru.html"/>
