@@ -471,19 +471,13 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor .Hide { display: none !important; }
 
-.PresetEditor.ItemInTheAir .DropArea { position: absolute; display: inline-block; background-color: greenyellow; border-radius: 4px; border: 1px solid white; left: 0; right: 0; top: 0; bottom: 0; opacity: 0.2; }
-
-.PresetEditor.ItemInTheAir .DropArea:hover { opacity: 0.4; }
-
-.PresetEditor.ItemInTheAir .Dragged .DropArea { display: none; }
-
 .PresetEditor item { position: relative; display: block; margin: 4px; float: left; }
 
 .PresetEditor item.Dragged { z-index: 10; position: fixed; margin-left: -1em; margin-top: -16px; }
 
 .PresetEditor .ItemPlaceholder { margin: 4px; float: left; background-color: #eee; border-radius: 2px; }
 
-.PresetEditor .Group { margin-left: 6px; padding: 4px 4px 8px 4px; overflow: hidden; border-radius: 2px; -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Likely future */ -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; }
+.PresetEditor .Group { margin-left: 6px; padding: 4px 4px 8px 4px; overflow: hidden; border-radius: 2px; min-width: 100px; background-color: white; -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Likely future */ -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; }
 
 .PresetEditor .Group .GroupSpacer { position: absolute; display: block; left: 0; top: 0; bottom: 0; width: 4px; pointer-events: none; background-color: #b3e2fb; }
 
@@ -491,7 +485,7 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor .Group .GroupHead .GroupTitle { position: relative; display: inline-block; z-index: 2; cursor: pointer; text-decoration: underline; max-width: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.PresetEditor .Group .GroupHead .GroupTitleEditor { position: relative; display: inline; z-index: 2; max-width: 90%; }
+.PresetEditor .Group .GroupHead .GroupTitleEditor { position: relative; display: inline; z-index: 2; width: 90%; }
 
 .PresetEditor .Group .GroupHead .GroupCounter { position: absolute; display: inline; right: 0; z-index: 2; cursor: pointer; text-decoration: underline; }
 
@@ -501,17 +495,31 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor .PresetEditorTree .ProductBadge { display: none !important; }
 
-.PresetEditor .ProductsView { flex: 25%; margin: 0; padding: 0; }
+.PresetEditor .ProductsView { position: relative; flex: 25%; margin: 0; padding: 0; }
 
-.PresetEditor .ProductsView .ProductCard, .PresetEditor .ProductsView .ProductCardPlaceholder { display: none !important; }
+.PresetEditor .ProductsView .ProductsContainer .ProductCard, .PresetEditor .ProductsView .ProductsContainer .ProductCardPlaceholder { display: none !important; }
 
-.PresetEditor .ProductsView .ProductCardPriceTotal { display: none !important; }
+.PresetEditor .ProductsView .ProductsContainer .GroupCounter { display: none !important; }
 
-.PresetEditor .ProductsView .Spinbox { display: none !important; }
+.PresetEditor .ProductsView .ProductsContainer .DropArea { display: none !important; }
 
-.PresetEditor .ProductsView .GroupCounter { display: none !important; }
+.PresetEditor .ProductsView .ProductsContainer .DropAreaRemoveItem { position: absolute; display: none; left: 0; right: 0; top: 0; bottom: 0; border-radius: 4px; z-index: 9; background-image: linear-gradient(45deg, #ffffff 25%, #e4e8eb 25%, #e4e8eb 50%, #ffffff 50%, #ffffff 75%, #e4e8eb 75%, #e4e8eb 100%); background-size: 20px 20px; }
 
-.PresetEditor .ProductsView .DropArea { display: none !important; }
+.PresetEditor .ProductsView .ProductsContainer .DropAreaRemoveItem:hover { background-image: linear-gradient(45deg, #ffffff 25%, #f5e7e7 25%, #f5e7e7 50%, #ffffff 50%, #ffffff 75%, #f5e7e7 75%, #f5e7e7 100%); }
+
+.PresetEditor .ProductsView .ProductsContainer .DropAreaRemoveItem:after { position: absolute; display: inline-block; content: "REMOVE"; color: black; font-weight: 500; font-size: 6rem; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg); opacity: 0.2; }
+
+.PresetEditor.ItemInTheAir .DropArea { position: absolute; display: inline-block; background-color: greenyellow; border-radius: 4px; border: 1px solid white; left: 0; right: 0; top: 0; bottom: 0; opacity: 0.2; }
+
+.PresetEditor.ItemInTheAir .DropArea:hover { opacity: 0.4; }
+
+.PresetEditor.ItemInTheAir .Dragged .DropArea { display: none; }
+
+.PresetEditor.ItemInTheAir .ProductCard, .PresetEditor.ItemInTheAir .ProductCardPlaceholder { display: none !important; }
+
+.PresetEditor.ItemInTheAir .ProductBadge { display: block !important; }
+
+.PresetEditor.ItemInTheAir .DropAreaRemoveItem { display: block !important; }
 
 .Spinbox { display: flex; justify-content: center; align-items: center; padding: 2px; }
 
@@ -533,7 +541,7 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .ProductBadge .ProductBadgeImage { position: relative; display: block; border-radius: 50%; left: 0; top: 0; width: 100%; pointer-events: none; }
 
-.ProductBadge .ProductBadgeTitle { position: relative; display: block; margin: 0; color: #383838; font-size: small; line-height: 1; font-weight: bold; text-align: center; }
+.ProductBadge .ProductBadgeTitle { position: absolute; display: inline-block; margin: 0; color: #aaa; font-size: small; line-height: 1; font-weight: bold; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
 
 .ProductCard, .ProductCardPlaceholder { position: relative; display: block; padding: 0px !important; background-color: white; width: 80px; border-radius: 2px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -webkit-transition: box-shadow 0.15s ease-in-out; -moz-transition: box-shadow 0.15s ease-in-out; -o-transition: box-shadow 0.15s ease-in-out; transition: box-shadow 0.15s ease-in-out; }
 
