@@ -527,6 +527,8 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor .Group .GroupHead .GroupCounter { position: absolute; display: inline; right: 0; z-index: 2; cursor: pointer; text-decoration: underline; }
 
+.PresetEditor .Group .GroupHead .GroupCounterEditor { position: relative; float: right; display: inline; text-align: center; z-index: 2; width: 50px; }
+
 .PresetEditor .Group .GroupContainer { margin-left: 4px; padding: 0; overflow: auto; min-width: 180px; min-height: 112px; border-radius: 2px; }
 
 .PresetEditor .EditorWorkspace { position: relative; display: flex; }
@@ -573,17 +575,17 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .PresetEditor.ItemInTheAir .DropAreaRemoveItem { display: block !important; }
 
-.Spinbox { display: flex; justify-content: center; align-items: center; padding: 2px; }
+.Spinbox { display: flex; justify-content: space-between; align-items: center; padding: 2px; }
 
-.Spinbox .SpinboxInput { position: relative; display: inline-block; margin: 0; font-weight: 400; font-size: medium; line-height: 20px; background: 0 0; padding: 0; border: none; text-align: center; vertical-align: middle; width: 30px; height: 20px; cursor: default; }
+.Spinbox .SpinboxInput { position: relative; display: inline-block; margin: 0; font-weight: 400; font-size: medium; line-height: 20px; background: 0 0; padding: 0; border: none; text-align: center; vertical-align: middle; width: 30%; height: 20px; cursor: default; }
 
-.Spinbox .SpinboxButtonUp { position: relative; display: inline-block; color: #000; font-weight: 400; font-size: medium; line-height: 20px; padding: 0; text-align: center; cursor: pointer; vertical-align: middle; width: 24px; height: 20px; border-left: 1px solid #aaa; }
+.Spinbox .SpinboxButtonUp { position: relative; display: inline-block; color: #000; font-weight: 400; font-size: medium; line-height: 20px; padding: 0; text-align: center; cursor: pointer; vertical-align: middle; width: 30%; height: 20px; border-left: 1px solid #aaa; }
 
 .Spinbox .SpinboxButtonUp:after { position: absolute; display: block; content: ''; width: 8px; height: 1px; background: #000; left: calc(50% - (8px/2)); top: 50%; }
 
 .Spinbox .SpinboxButtonUp:before { position: absolute; display: block; content: ''; width: 8px; height: 1px; background: #000; left: calc(50% - (8px/2)); top: 50%; transform: rotate(-90deg); }
 
-.Spinbox .SpinboxButtonDown { position: relative; display: inline-block; color: #000; font-weight: 400; font-size: medium; line-height: 20px; padding: 0; text-align: center; cursor: pointer; vertical-align: middle; width: 24px; height: 20px; border-right: 1px solid #aaa; }
+.Spinbox .SpinboxButtonDown { position: relative; display: inline-block; color: #000; font-weight: 400; font-size: medium; line-height: 20px; padding: 0; text-align: center; cursor: pointer; vertical-align: middle; width: 30%; height: 20px; border-right: 1px solid #aaa; }
 
 .Spinbox .SpinboxButtonDown:after { position: absolute; display: block; content: ''; width: 8px; height: 1px; background: #000; left: calc(50% - (8px/2)); top: 50%; }
 
@@ -640,6 +642,8 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 .ProductCard .ProductCardContent .ProductCardPriceTotal, .ProductCardPlaceholder .ProductCardContent .ProductCardPriceTotal { position: absolute; color: #aaa; font-size: x-small; font-weight: normal; line-height: 1.1; top: 0px; left: 0px; max-width: 100%; padding: 4px; pointer-events: none; }
 
 .ProductCardPlaceholder { float: left; background-color: #eee; }
+
+.ProductData { display: none; }
 
 .SdkConfigurator { max-width: 480px; margin: 0 auto 0 auto; padding-left: 28px; padding-right: 4px; }
 
