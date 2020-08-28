@@ -227,13 +227,13 @@ code > .method:hover, code > .Method:hover { text-decoration-color: #74531f; }
 
 .MaterialCard > .Title, .MaterialCard > .Text { text-align: left; margin: 0 1rem; }
 
-.MaterialCard > .Title { top: 224px; margin-top: 1rem; margin-bottom: 0.3em; font-size: 1.5rem; line-height: 1.1em; font-weight: 400; color: #081a20; }
+.MaterialCard .Title { top: 224px; margin-top: 1rem; margin-bottom: 0.3em; font-size: 1.3rem; line-height: 1.1em; font-weight: 600; color: #081a20; }
 
 .MaterialCard .Image { width: 100%; height: 224px; }
 
-.MaterialCard > .Text { top: calc(224px + 1.5rem + 8px); margin: 0 1rem; font-size: 1rem; line-height: 1.2; color: #455a64; }
+.MaterialCard > .Text { top: calc(224px + 1.5rem + 8px); margin: 0 1rem; font-size: 0.9rem; line-height: 1.4em; }
 
-.MaterialCard:before { position: absolute; display: block; bottom: 0px; right: 0px; left: 0px; z-index: 2; height: 32px; content: ""; background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(255, 255, 255, 0) 100%); }
+.MaterialCard:before { position: absolute; display: block; bottom: 0px; right: 0px; left: 0px; z-index: 2; height: 32px; content: ""; }
 
 .MaterialCard:active { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
@@ -349,13 +349,17 @@ table > tbody td:empty { border: 1px solid transparent; }
 
 .TemplateLanding > .Content .Section > .Title > .Link { visibility: hidden; }
 
-.TemplateLanding > .Content .Section > .Title { font-size: 2.5rem; text-align: left; color: #888; margin-bottom: 0.2rem; }
+.TemplateLanding > .Content .Section > .Title { font-size: 2.5rem; font-weight: 700; text-align: left; color: #081a20; margin-bottom: 0.2rem; }
 
 .TemplateLanding > .Content .Section > .Section { margin-left: 20px; }
 
-.TemplateLanding > .Content .Section > .Section .Title { font-weight: 400; font-size: 1.5rem; color: #aaa; }
+.TemplateLanding > .Content .Section > .Section .Title { font-weight: 400; font-size: 1.5rem; color: #081a20; }
 
-.TemplateLanding > .Content .Section > .Section > .Section > .Title { font-weight: 500; font-size: 1.4rem; color: #ccc; }
+.TemplateLanding > .Content .Section > .Section > .Section > .Title { font-weight: 500; font-size: 1.4rem; color: #081a20; }
+
+.TemplateLanding > .Content a { text-decoration: none; font-style: normal; color: #2d9698; }
+
+.TemplateLanding > .Content i { font-variant: italic; }
 
 .TemplateLanding > .Content *:not(:last-child)[style*="display:block"] { margin-bottom: 0.4rem; }
 
@@ -452,9 +456,9 @@ body { margin: 0; font-family: "Roboto"; font-size: 1rem; font-weight: 400; line
 
 /*nav.menu > *{ display: block; color: inherit; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;     }*/
 /* @media only screen and (max-width: 1220px) { nav.menu .button{ visibility: visible; } nav.menu:not(.checked) { visibility: hidden; width: 0; } }*/
-nav.language-menu { position: fixed; right: 0; top: 0; z-index: 10; background-color: #eee; opacity: 0.93; color: #222; }
+nav.language-menu { position: fixed; right: 0; top: 0; z-index: 10; background-color: #8c96a0; opacity: 0.93; color: #081a20; }
 
-nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; text-decoration: none; text-align: right; }
+nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; text-decoration: none; font-weight: 400; text-align: center; }
 
 @keyframes animatedBackgroundPositionVertical { 0% { background-position: 0 0; }
   100% { background-position: 0 100%; } }
