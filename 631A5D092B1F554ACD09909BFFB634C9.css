@@ -1,3 +1,37 @@
+/*
+$White: #ffffff !default;
+$GrayLightest: #f8f9fa !default;
+$GrayLighter: #e9ecef !default;
+$GrayLight: #dee2e6 !default;
+$Gray: #adb5bd !default;
+$GrayDark: #6c757d !default;
+$GrayDarker: #343a40 !default;
+$GrayDarkest: #212529 !default;
+$Black: #000000 !default;
+
+$Blue: #007bff !default;
+$Indigo: #6610f2 !default;
+$Purple: #6f42c1 !default;
+$Pink: #e83e8c !default;
+$Red: #dc3545 !default;
+$Orange: #fd7e14 !default;
+$Yellow: #ffc107 !default;
+$Green: #28a745 !default;
+$Teal: #20c997 !default;
+$Cyan: #17a2b8 !default;
+
+$PrimaryColor: $Blue !default;
+$SecondaryColor: $GrayDark !default;
+$SuccessColor: $Green !default;
+$InfoColor: $Cyan !default;
+$WarningColor: $Yellow !default;
+$DangerColor: $Red !default;
+$LightColor: $GrayLightest !default;
+$DarkColor: $GrayDarker !default;
+*/
+/*$Spacer: 1rem !default; $VerticalGap: 0.4rem !default; $BorderWidth: 1px !default; */
+/*$FontFamilySansSerif: "Roboto" !default; $FontFamilyMonospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default; $FontFamilyBase: $FontFamilySansSerif !default; $FontSizeBase: 1rem !default; $FontSizeLg: $FontSizeBase * 1.25 !default; $FontSizeMd: $FontSizeBase * 1.14 !default; $FontSizeSm: $FontSizeBase * 0.92 !default; $FontSizeXs: $FontSizeBase * 0.875 !default; $FontWeightLighter: lighter !default; $FontWeightLight: 300 !default; $FontWeightNormal: 400 !default; $FontWeightBold: 700 !default; $FontWeightBolder: bolder !default; $FontWeightBase: $FontWeightNormal !default; $LineHeightBase: 1.5 !default; $H1FontSize: $FontSizeBase * 2.5 !default; $H2FontSize: $FontSizeBase * 2 !default; $H3FontSize: $FontSizeBase * 1.75 !default; $H4FontSize: $FontSizeBase * 1.5 !default; $H5FontSize: $FontSizeBase * 1.25 !default; $H6FontSize: $FontSizeBase !default; $HeadingsFontWeight: 500 !default; $HeadingsLineHeight: 1.2 !default; */
+/*$LinkColor: $PrimaryColor !default; $LinkDecoration: none !default; $LinkHoverColor: darken($LinkColor, 15%) !default; $LinkHoverDecoration: underline !default; */
 .material .code { max-height: 80vh; overflow: auto; margin-bottom: 1rem; }
 
 code { font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background-color: #faf6fa; color: black; display: inline-block; font-size: 1rem; padding: 2px 5px; word-break: break-all; /*& + code { margin-left: -5px; padding-left: 0; }*/ }
@@ -295,7 +329,7 @@ table > tbody td:empty { border: 1px solid transparent; }
 
 .TemplateRegularMaterial .Footer { background-color: #f7f7f7; }
 
-.TemplateRegularMaterial > .Content { min-width: 320px; margin: 0 auto 0 auto; flex: 1 0 auto; font-weight: 400; font-size: 1rem; color: #777; line-height: 1.6; letter-spacing: 0.01em; /*> *, .Section > * { margin-top: $VerticalGap; }*/ /*> *:not(:last-child), .section>*:not(:last-child) { margin-bottom: $VerticalGap; } :not(:last-child)[style*="display:flex"] { margin-bottom: $VerticalGap; }*/ }
+.TemplateRegularMaterial > .Content { min-width: 320px; margin: 0 auto 0 auto; flex: 1 0 auto; font-weight: 400; font-size: 1rem; color: #777; line-height: 1.6; letter-spacing: 0.01em; /*> *, .Section > * { margin-top: 0.4rem; }*/ /*> *:not(:last-child), .section>*:not(:last-child) { margin-bottom: 0.4rem; } :not(:last-child)[style*="display:flex"] { margin-bottom: 0.4rem; }*/ }
 
 .TemplateRegularMaterial > .Content.anchorsOutside .Section > .Title > .Link { text-decoration: none; float: left; }
 
@@ -377,7 +411,6 @@ html { font-family: sans-serif; line-height: 1.5; height: 100%; -webkit-text-siz
 
 body { margin: 0; font-family: "Roboto"; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; background-color: #ffffff; overflow-x: hidden; min-height: 100vh; }
 
-/*hr { margin-top: $Spacer; margin-bottom: $Spacer; border: 0; border-top: $BorderWidth solid rgba($Black, .1); box-sizing: content-box; height: 0; overflow: visible; } h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  { margin-top: 0; margin-bottom: $Spacer / 2; font-weight: $HeadingsFontWeight; line-height: $HeadingsLineHeight; } h1, .h1 { font-size: $H1FontSize; } h2, .h2 { font-size: $H2FontSize; } h3, .h3 { font-size: $H3FontSize; } h4, .h4 { font-size: $H4FontSize; } h5, .h5 { font-size: $H5FontSize; } h6, .h6 { font-size: $H6FontSize; } a { color: $LinkColor; text-decoration: $LinkDecoration; word-wrap: break-word; background-color: transparent; &:hover { color: $LinkHoverColor; text-decoration: $LinkHoverDecoration; } } p { margin-top: 0; margin-bottom: $Spacer; } pre, code, kbd, samp { font-family: $FontFamilyMonospace; //font-size: ?? } pre { margin-top: 0; margin-bottom: $Spacer; overflow: auto; -ms-overflow-style: scrollbar; } table { border-collapse: collapse;  } th { text-align: inherit; }*/
 /*@mixin src($fileName,$localNames...){
     $sources: ();
     @each $n in $localNames {
@@ -503,6 +536,8 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
     }
 
 }*/
+.PresetEditor { -webkit-user-select: none; -webkit-touch-callout: none; }
+
 .PresetEditor .DragArea { cursor: move; }
 
 .PresetEditor .Hide { display: none !important; }
