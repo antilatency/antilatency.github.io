@@ -221,6 +221,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Tree_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Terms/SocketReferenceDesign_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/SocketReferenceDesign_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/SocketReferenceDesign_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/SocketReferenceDesign_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/SocketReferenceDesign_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/SocketReferenceDesign_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Terms/Socket_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Socket_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Socket_ru.html"/>
@@ -329,6 +339,16 @@
 	<loc>https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/TrackingAreaCeilingSetup_en.html</loc>
