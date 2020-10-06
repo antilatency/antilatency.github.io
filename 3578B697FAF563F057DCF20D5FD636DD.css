@@ -686,41 +686,45 @@ nav.language-menu > * { display: block; color: inherit; padding-left: 16px; padd
 
 .SdkConfigurator { max-width: 480px; margin: 0 auto 0 auto; padding-left: 28px; padding-right: 4px; }
 
-.SdkConfigurator > label { height: 32px; display: block; margin-bottom: 8px; }
+.SdkConfigurator > * { margin-bottom: 4px; }
+
+.SdkConfigurator > .Space { height: 1px; background-color: #eee; }
+
+.SdkConfigurator > label { display: block; }
 
 .SdkConfigurator > label > * { float: right; }
 
-.SdkConfigurator > label.Space0 { margin-left: 0px; }
+.SdkConfigurator > label.Tab0 { margin-left: 0px; }
 
-.SdkConfigurator > label.Space1 { margin-left: 20px; }
+.SdkConfigurator > label.Tab1 { margin-left: 20px; }
 
-.SdkConfigurator > label.Space2 { margin-left: 40px; }
+.SdkConfigurator > label.Tab2 { margin-left: 40px; }
 
-.SdkConfigurator > label.Space3 { margin-left: 60px; }
+.SdkConfigurator > label.Tab3 { margin-left: 60px; }
 
-.SdkConfigurator > label.Space4 { margin-left: 80px; }
+.SdkConfigurator > label.Tab4 { margin-left: 80px; }
 
-.SdkConfigurator > label.Space5 { margin-left: 100px; }
+.SdkConfigurator > label.Tab5 { margin-left: 100px; }
 
-.SdkConfigurator > label.Space6 { margin-left: 120px; }
+.SdkConfigurator > label.Tab6 { margin-left: 120px; }
 
-.SdkConfigurator > label.Space7 { margin-left: 140px; }
+.SdkConfigurator > label.Tab7 { margin-left: 140px; }
 
-.SdkConfigurator > label.Space8 { margin-left: 160px; }
+.SdkConfigurator > label.Tab8 { margin-left: 160px; }
 
-.SdkConfigurator > label.Space9 { margin-left: 180px; }
+.SdkConfigurator > label.Tab9 { margin-left: 180px; }
 
-.SdkConfigurator > label.Space10 { margin-left: 200px; }
+.SdkConfigurator > label.Tab10 { margin-left: 200px; }
 
-.SdkConfigurator > label.Space11 { margin-left: 220px; }
+.SdkConfigurator > label.Tab11 { margin-left: 220px; }
 
-.SdkConfigurator > label.Space12 { margin-left: 240px; }
+.SdkConfigurator > label.Tab12 { margin-left: 240px; }
 
 .SdkConfigurator > label.Unity:before { font-family: "Material Design Icons"; content: "\F06AF"; }
 
 .SdkConfigurator > label.Library:before { font-family: "Material Design Icons"; content: "\F08D6"; }
 
-.SdkConfigurator > label:before { position: absolute; color: #bbb; font-size: 24px; margin-top: -4px; margin-left: -26px; }
+.SdkConfigurator > label:before { position: absolute; color: #bbb; font-size: 20px; margin-top: -4px; margin-left: -26px; }
 
 .AntilatencyLogo { -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; /* Likely future */ text-decoration: none; }
 
