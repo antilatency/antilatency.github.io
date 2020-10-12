@@ -431,24 +431,14 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/AltDescription/ColorCodes_ru.html"/>
 	</url>
 	<url>
-	<loc>https://antilatency.github.io/Software/Antilatency_Service_en.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/Antilatency_Service_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/Antilatency_Service_ru.html"/>
+	<loc>https://antilatency.github.io/Software/AntilatencyService_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService_ru.html"/>
 	</url>
 	<url>
-	<loc>https://antilatency.github.io/Software/Antilatency_Service_ru.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/Antilatency_Service_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/Antilatency_Service_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Software/Antilatency_Service/Device_Network_en.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/Antilatency_Service/Device_Network_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/Antilatency_Service/Device_Network_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Software/Antilatency_Service/Device_Network_ru.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/Antilatency_Service/Device_Network_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/Antilatency_Service/Device_Network_ru.html"/>
+	<loc>https://antilatency.github.io/Software/AntilatencyService_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Api/AndroidJniWrapper/IAndroidJni_en.html</loc>
@@ -479,6 +469,36 @@
 	<loc>https://antilatency.github.io/Api/Antilatency/HardwareExtensionInterface_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Api/Antilatency/HardwareExtensionInterface_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Api/Antilatency/HardwareExtensionInterface_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyService/Device_Network_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService/Device_Network_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService/Device_Network_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyService/Device_Network_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService/Device_Network_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService/Device_Network_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyService/Environments_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService/Environments_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService/Environments_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyService/Environments_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService/Environments_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService/Environments_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyService/Placements_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService/Placements_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService/Placements_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/AntilatencyService/Placements_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/AntilatencyService/Placements_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyService/Placements_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Api/Antilatency/DeviceNetwork/Interop_en.html</loc>
