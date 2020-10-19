@@ -331,6 +331,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Tutorials/SocketCustomizing_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/SocketCustomizing_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/SocketCustomizing_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/SocketCustomizing_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/SocketCustomizing_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/SocketCustomizing_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/SocketReferenceDesignDeploying_ru.html"/>
