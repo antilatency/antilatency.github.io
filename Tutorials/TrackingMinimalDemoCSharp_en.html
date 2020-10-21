@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="ru"><head><title>Tracking: Консольное приложение на C#</title><link rel="stylesheet" href="https://antilatency.github.io/3578B697FAF563F057DCF20D5FD636DD.css"><script src="https://antilatency.github.io/FC83B18ACB206CF2DB6F675CCE8A9D05.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"><meta property="og:title" content="Tracking: Консольное приложение на C#"><meta property="og:title" content="Tracking: Консольное приложение на C#"><meta property="og:description" content="В этом уроке напишем минимальное консольное приложение на C#, которое: находит Alt, создает Environment, запускает Task трекинга и выводит координаты в консоль."><meta property="og:image" content="https://antilatency.github.io/Images/75ED08B3B1F8C8EBE4BD9C7B6418E31E/75ED08B3B1F8C8EBE4BD9C7B6418E31E2048.jpg"><meta property="og:url" content="https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_en.html"><meta property="twitter:card" content="summary"></head><body class="TemplateRegularMaterial"><script>Behaviour.Initialize("TemplateLeftSideMenu",800,64)</script><nav class="menu LeftSideMenu" id="LeftSideMenu"><a class="Text AntilatencyLogo" href="https://antilatency.github.io/Root/Index_en.html" title="" style="font-family: 'antilatency' !important;"><span style="color: #ACC435">a</span><span style="color: #FFFFFF">l</span></a><a class="Text" href="https://antilatency.github.io/Root/Index_en.html" title="">Antilatency</a><a class="Text" href="https://antilatency.github.io/Terms/Antilatency_Device_Network_en.html" title="Antilatency Device Network - eng.">Antilatency Device Network</a><a class="Text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="The Alt is an optical inertial tracking module. The Alt is located on objects being tracked and determines their position in space in relation to infrared markers.             Alt is supplied as a bundle with a wired SocketUsb.">Alt</a><a class="Text" href="https://antilatency.github.io/Internal/Debug_en.html" title="На этой странице странице некоторые примеры использования движка.">Debug</a><a class="Text" href="https://antilatency.github.io/Csml/CsmlPredefined/Diagnostics_en.html" title="This page provide diagnostics information about website. This page is auto generated.">Diagnostics</a><a class="Text" href="https://antilatency.github.io/Software/AntilatencyService_en.html" title="A utility allows to update the firmware and to look through the device tree. Besides, the AntilatencyService keeps in the settings of the tracking areas and placements for different VR gadgets.">AntilatencyService</a><a class="Text" href="https://antilatency.github.io/Store/PresetEditor_en.html" title="Welcome to Antilatency store!">Store</a><a class="Text" href="https://antilatency.github.io/Sdk/Configurator_en.html" title="На этой странице вы сможете &quot;Приготовить&quot; Sdk, выбрав платформу и добавив ингредиенты на ваш вкус">Sdk</a><a class="Text" href="https://antilatency.github.io/Api_en.html" title="">Api</a></nav><div class="Content" id="Content"><div class="Header"><h1 class="Title">Tracking: Консольное приложение на C#</h1><div class="Image" style="overflow: hidden;"><img src="https://antilatency.github.io/Images/75ED08B3B1F8C8EBE4BD9C7B6418E31E/75ED08B3B1F8C8EBE4BD9C7B6418E31E2048.jpg"><script>Behaviour.Initialize("RoiImage",1.0,[13.62,98.0,17.3,82.3])</script></div><div class="Text">В этом уроке напишем минимальное консольное приложение на C#, которое: находит <a class="Text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="The Alt is an optical inertial tracking module. The Alt is located on objects being tracked and determines their position in space in relation to infrared markers.             Alt is supplied as a bundle with a wired SocketUsb.">Alt</a>, создает <a class="Text NoTarget" href="https://antilatency.github.io/Csml/CsmlPredefined/NoTarget_en.html" title="This page does not exist yet">Environment</a>, запускает <a class="Text NoTarget" href="https://antilatency.github.io/Csml/CsmlPredefined/NoTarget_en.html" title="This page does not exist yet">Task</a> трекинга и выводит координаты в консоль.</div></div><div class="Section"><h2 class="Title" id="Оборудование">Оборудование<a class="Link" href="#Оборудование" title="Heading anchor"></a></h2><a class="Text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="The Alt is an optical inertial tracking module. The Alt is located on objects being tracked and determines their position in space in relation to infrared markers.             Alt is supplied as a bundle with a wired SocketUsb.">Alt</a></div><div class="Section"><h2 class="Title" id="Код">Код<a class="Link" href="#Код" title="Heading anchor"></a></h2><a class="GitHubLink" target="_blank" href="https://github.com/antilatency/TrackingMinimalDemoCSharp/blob/1d6c92ff9553e183f91898c3108b6760f88475c1/Program.cs#L21-L212"></a><div class="code csharp"><pre>
+<span class="keyword">using</span> System;
+<span class="keyword">using</span> System.Threading;
+
+<span class="keyword">using</span> Antilatency;
+<span class="keyword">using</span> Antilatency.DeviceNetwork;
+<span class="keyword">using</span> Antilatency.Alt.Tracking;
+<span class="keyword">using</span> Antilatency.StorageClient;
+
+<span class="keyword">class</span> Program {
+    <span class="keyword">static</span> <span class="keyword">void</span> Main(<span class="keyword">string</span>[] args) {
+        <span class="keyword">var</span> trackignExample = <span class="keyword">new</span> AltTrackingExample();
+        <span class="keyword">while</span> (<span class="keyword">true</span>) {
+            <span class="keyword">var</span> node = trackignExample.WaitForNode();
+            trackignExample.RunTrackingTask(node);
+        }
+    }
+}
+
+<span class="keyword">class</span> AltTrackingExample {
+    <span class="keyword">private</span> Antilatency.DeviceNetwork.ILibrary _adnLibrary;
+    <span class="keyword">private</span> Antilatency.DeviceNetwork.INetwork _deviceNetwork;
+
+    <span class="keyword">private</span> Antilatency.Alt.Tracking.ILibrary _altTrackingLibrary;
+    <span class="keyword">private</span> Antilatency.Alt.Tracking.ITrackingCotask _trackingCotask;
+    <span class="keyword">private</span> Antilatency.Alt.Tracking.IEnvironment _environment;
+    <span class="keyword">private</span> Antilatency.Math.floatP3Q _placement;
+
+    <span class="keyword">private</span> Antilatency.StorageClient.ILibrary _antilatencyStorageClientLibrary;
+
+    <span class="keyword">public</span> AltTrackingExample() {
+        <span class="comment">//Load libraries.</span>
+        _adnLibrary = Antilatency.DeviceNetwork.Library.load();
+        _antilatencyStorageClientLibrary = Antilatency.StorageClient.Library.load();
+        _altTrackingLibrary = Antilatency.Alt.Tracking.Library.load();
+
+        <span class="keyword">if</span> (_adnLibrary == <span class="keyword">null</span>) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;Failed to load AntilatencyDeviceNetwork library&quot;</span>);
+        }
+
+        <span class="keyword">if</span> (_antilatencyStorageClientLibrary == <span class="keyword">null</span>) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;Failed to load AntilatencyStorageClient library&quot;</span>);
+        }
+
+        <span class="keyword">if</span> (_altTrackingLibrary == <span class="keyword">null</span>) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;Failed to load AntilatencyAltTracking library&quot;</span>);
+        }
+
+        <span class="comment">//Set log verbosity level for Antilatency Device Network library.</span>
+        _adnLibrary.setLogLevel(LogLevel.Info);
+
+        Console.WriteLine(<span class="string">&quot;Antilatency Device Network version: &quot;</span> + _adnLibrary.getVersion());
+
+        <span class="comment">//Create Antilatency Device Network.</span>
+        _deviceNetwork = _adnLibrary.createNetwork(<span class="keyword">new</span>[] { <span class="keyword">new</span> UsbDeviceType { vid = UsbVendorId.Antilatency, pid = 0x0000 } });
+
+        <span class="comment">//Read default environment code from AntilatencyService.</span>
+        <span class="keyword">var</span> environmentCode = _antilatencyStorageClientLibrary.getLocalStorage().read(<span class="string">&quot;environment&quot;</span>, <span class="string">&quot;default&quot;</span>);
+
+        <span class="comment">//Read default placement code from AntilatencyService.</span>
+        <span class="keyword">var</span> placementCode = _antilatencyStorageClientLibrary.getLocalStorage().read(<span class="string">&quot;placement&quot;</span>, <span class="string">&quot;default&quot;</span>);
+
+        <span class="comment">//Create placement using code received from storage.</span>
+        _placement = <span class="keyword">new</span> Antilatency.Math.floatP3Q();
+        <span class="keyword">if</span> (<span class="keyword">string</span>.IsNullOrEmpty(placementCode)) {
+            Console.WriteLine(<span class="string">&quot;Failed to get placement code, using identity placement&quot;</span>);
+            _placement.position.x = <span class="number">0</span>;
+            _placement.position.y = <span class="number">0</span>;
+            _placement.position.z = <span class="number">0</span>;
+
+            _placement.rotation.x = <span class="number">0</span>;
+            _placement.rotation.y = <span class="number">0</span>;
+            _placement.rotation.z = <span class="number">0</span>;
+            _placement.rotation.w = <span class="number">1</span>;
+        } <span class="keyword">else</span> {
+            _placement = _altTrackingLibrary.createPlacement(placementCode);
+        }
+
+        Console.WriteLine(
+                <span class="keyword">string</span>.Format(<span class="string">&quot;Placement offset: {0}, {1}, {2}, rotation: {3}, {4}, {5}, {6}&quot;</span>,
+                _placement.position.x, _placement.position.y, _placement.position.z,
+                _placement.rotation.x, _placement.rotation.y, _placement.rotation.z, _placement.rotation.w
+                )
+            );
+
+        <span class="comment">//Create environment using code received from storage.</span>
+        _environment = _altTrackingLibrary.createEnvironment(environmentCode);
+
+        <span class="comment">//Get all tracking markers from environment. For flexible environments markers position will be initialized with some default values</span>
+        <span class="comment">//and then tracking will correct positions to match markers as close as possible to real positions.</span>
+        <span class="keyword">var</span> markers = _environment.getMarkers();
+        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; markers.Length; ++i) {
+            Console.WriteLine(<span class="keyword">string</span>.Format(<span class="string">&quot;Environment marker position: ({0}, {1}, {2})&quot;</span>, markers[i].x, markers[i].y, markers[i].z));
+        }
+    }
+
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>
+    <span class="xmlDocTag">///</span><span class="xmlDocComment"> Checks if any idle tracking node exists.</span>
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span>
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;returns&gt;</span><span class="xmlDocComment">First idle tracking node.&lt;/returns&gt;</span>
+    <span class="keyword">public</span> Antilatency.DeviceNetwork.NodeHandle WaitForNode() {
+        Console.WriteLine(<span class="string">&quot;Waiting for tracking node...&quot;</span>);
+
+        <span class="keyword">var</span> node = <span class="keyword">new</span> NodeHandle();
+        <span class="keyword">var</span> networkUpdateId = 0u;
+        <span class="keyword">do</span> {
+            <span class="comment">//Every time any node is connected, disconnected or node status is changed, network update id is incremented.</span>
+            <span class="keyword">var</span> updateId = _deviceNetwork.getUpdateId();
+            <span class="keyword">if</span> (networkUpdateId != updateId) {
+                networkUpdateId = updateId;
+
+                Console.WriteLine(<span class="string">&quot;Network update id has been incremented, searching for available tracking node...&quot;</span>);
+
+                node = GetTrackingNode();
+
+                <span class="keyword">if</span> (node == Antilatency.DeviceNetwork.NodeHandle.Null) {
+                    Console.WriteLine(<span class="string">&quot;Tracking node not found.&quot;</span>);
+                }
+            }
+        } <span class="keyword">while</span> (node == Antilatency.DeviceNetwork.NodeHandle.Null);
+
+        Console.WriteLine(<span class="string">&quot;Tracking node found, serial number: &quot;</span> + _deviceNetwork.nodeGetStringProperty(node, Antilatency.DeviceNetwork.Interop.Constants.HardwareSerialNumberKey));
+
+        <span class="keyword">return</span> node;
+    }
+
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>
+    <span class="xmlDocTag">///</span><span class="xmlDocComment"> Returns the first idle alt tracker node just for demonstration purposes.</span>
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span>
+    <span class="keyword">private</span> Antilatency.DeviceNetwork.NodeHandle GetTrackingNode() {
+        <span class="keyword">var</span> result = <span class="keyword">new</span> NodeHandle();
+
+        <span class="keyword">using</span> (<span class="keyword">var</span> trackingConstructor = _altTrackingLibrary.createTrackingCotaskConstructor()) {
+            <span class="comment">//Get all nodes that support tracking task.</span>
+            <span class="keyword">var</span> nodes = trackingConstructor.findSupportedNodes(_deviceNetwork);
+            <span class="keyword">foreach</span> (<span class="keyword">var</span> node <span class="keyword">in</span> nodes) {
+                <span class="comment">//If node status is idle (no task currently running) then we can start tracking task on this node.</span>
+                <span class="keyword">if</span> (_deviceNetwork.nodeGetStatus(node) == NodeStatus.Idle) {
+                    result = node;
+                    <span class="keyword">break</span>;
+                }
+            }
+            <span class="keyword">return</span> result;
+        }
+    }
+
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>
+    <span class="xmlDocTag">///</span><span class="xmlDocComment"> Start tracking task on node and print tracking data while node is connected and task has not been stopped.</span>
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span>
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name=&quot;node&quot;&gt;</span><span class="xmlDocComment">Node to start tracking on.&lt;/param&gt;</span>
+    <span class="keyword">public</span> <span class="keyword">void</span> RunTrackingTask(Antilatency.DeviceNetwork.NodeHandle node) {
+        <span class="comment">//Create tracking cotask (run tracking on node).</span>
+        _trackingCotask = _altTrackingLibrary.createTrackingCotaskConstructor().startTask(_deviceNetwork, node, _environment);
+
+        <span class="keyword">while</span> (!_trackingCotask.isTaskFinished()) {
+            <span class="comment">//Get raw tracker state without extrapolation and placement correction</span>
+            <span class="keyword">var</span> rawState = _trackingCotask.getState(Antilatency.Alt.Tracking.Constants.DefaultAngularVelocityAvgTime);
+            Console.WriteLine(<span class="keyword">string</span>.Format(<span class="string">&quot;Raw tracker position: ({0}, {1}, {2})&quot;</span>, rawState.pose.position.x, rawState.pose.position.y, rawState.pose.position.z));
+
+            <span class="comment">//Get extrapolated tracker state with placement correction</span>
+            <span class="keyword">var</span> extrapolatedState = _trackingCotask.getExtrapolatedState(_placement, <span class="number">0</span>.06f);
+            Console.WriteLine(<span class="keyword">string</span>.Format(<span class="string">&quot;Extrapolated tracker position: ({0}, {1}, {2})&quot;</span>, extrapolatedState.pose.position.x, extrapolatedState.pose.position.y, extrapolatedState.pose.position.z));
+
+            <span class="comment">//Get current tracking stability stage</span>
+            Console.WriteLine(<span class="string">&quot;Current tracking stage: &quot;</span> + extrapolatedState.stability.stage);
+
+            <span class="comment">//5 FPS pose printing</span>
+            Thread.Sleep(<span class="number">200</span>);
+        }
+
+        StopTracking();
+    }
+
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>
+    <span class="xmlDocTag">///</span><span class="xmlDocComment"> Stop tracking task.</span>
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span>
+    <span class="keyword">private</span> <span class="keyword">void</span> StopTracking() {
+        Antilatency.Utils.SafeDispose(<span class="keyword">ref</span> _trackingCotask);
+    }
+
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>
+    <span class="xmlDocTag">///</span><span class="xmlDocComment"> Cleanup at object destroy.</span>
+    <span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span>
+    ~AltTrackingExample() {
+        StopTracking();
+
+        Antilatency.Utils.SafeDispose(<span class="keyword">ref</span> _altTrackingLibrary);
+        Antilatency.Utils.SafeDispose(<span class="keyword">ref</span> _antilatencyStorageClientLibrary);
+        Antilatency.Utils.SafeDispose(<span class="keyword">ref</span> _deviceNetwork);
+        Antilatency.Utils.SafeDispose(<span class="keyword">ref</span> _adnLibrary);
+    }
+}
+
+</pre></div></div></div><nav class="language-menu"><a class="Text" href="https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_en.html" title="В этом уроке напишем минимальное консольное приложение на C#, которое: находит Alt, создает Environment, запускает Task трекинга и выводит координаты в консоль." onclick="this.href += window.location.hash;">English</a><a class="Text" href="https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_ru.html" title="В этом уроке напишем минимальное консольное приложение на C#, которое: находит Alt, создает Environment, запускает Task трекинга и выводит координаты в консоль." onclick="this.href += window.location.hash;">Русский</a></nav><footer class="Footer"><div class="FooterContainer"><div class="Grid"><script>Behaviour.Initialize("Grid",250,[1,2,4])</script><div class="Section"><h2 class="Title" id="Internal">Internal<a class="Link" href="#Internal" title="Heading anchor"></a></h2><div class="Text"><a href="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=175&projectKey=CSML" title="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=175&projectKey=CSML">Jira CSML</a></div><div class="Text"><a href="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=177&projectKey=ALCOM" title="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=177&projectKey=ALCOM">Jira Antilatency.com</a></div></div><div class="Section"><h2 class="Title" id="Products">Products<a class="Link" href="#Products" title="Heading anchor"></a></h2><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="The Alt is an optical inertial tracking module. The Alt is located on objects being tracked and determines their position in space in relation to infrared markers.             Alt is supplied as a bundle with a wired SocketUsb.">Alt</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/Bracer_en.html" title="The Bracer is a wireless Socket to track the user's hands designed for an ergonomic fit. Unlike standard VR controllers, the Bracer adds on 6DoF hand tracking while keeping the user's hands free to interact with material objects.">Bracer</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/ExtensionBoard_en.html" title="Pcb for easy using Antilatency Hardware Extension Interface">Antilatency Extension Board</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/PicoG2Socket_en.html" title="The Pico G2 Socket is a wireless Socket designed to track the PicoG2 headset and receive data from wireless devices via the Antilatency Radio Protocol.">Pico G2 Socket</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/SocketUsbRadio_en.html" title="The HMD Radio Socket is a wireless Socket that supports both data reception from wireless devices via the Antilatency Radio Protocol and tracking data transmission when placed on the objects being tracked.">HMD Radio Socket</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/Tag_en.html" title="The Tag is a wireless Socket that can be attached to an object or a part of the human body to track them.              The Tag does not track its own position, but relays data from the Alt fitted into it.              The Tag can track material objects and custom controllers, for example dummy guns.">Tag</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/TrackingAreaFloor_en.html" title="Напольная зона трекинга собирается из специальных лент с ИК-маркерами. Ленты с ИК-маркерами фиксируются с помощью напольных плиток. Помимо лент с маркерами в комплект входят коннекторы и соединительные ленты для соединения лент между собой.">Напольная зона трекинга 10m²</a></div></div><div class="Section"><h2 class="Title" id="For_Developers">For Developers<a class="Link" href="#For_Developers" title="Heading anchor"></a></h2><div class="Text"><a class="Text" href="https://antilatency.github.io/Api_en.html" title="">Api</a></div><div class="Text"><a href="https://antilatency.com/" title="https://antilatency.com/">Tutorials</a></div><div class="Text"><a href="https://antilatency.com/" title="https://antilatency.com/">Tools</a></div></div><div class="Section"><h2 class="Title" id="Company">Company<a class="Link" href="#Company" title="Heading anchor"></a></h2><div class="Text"><a href="https://antilatency.com/" title="https://antilatency.com/">About</a></div><div class="Text"><a href="https://antilatency.com/" title="https://antilatency.com/">Contact Us</a></div><div class="Text"><a href="https://antilatency.com/" title="https://antilatency.com/">Become a partner</a></div></div></div><div class="Text"><a href="https://antilatency.com/" title="https://antilatency.com/">Personal data processing policy</a> | <a href="https://antilatency.com/" title="https://antilatency.com/">Terms of Services</a> | Copyright © 2020, ALT LLC. info@antilatency.com</div></div></footer></body></html>
