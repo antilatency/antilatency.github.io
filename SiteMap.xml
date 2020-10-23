@@ -291,6 +291,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Environment_Editor_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Tutorials/HMDSocketMode_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/HMDSocketMode_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/HMDSocketMode_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/HMDSocketMode_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/HMDSocketMode_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/HMDSocketMode_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Tutorials/OpenVR_Plugin_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/OpenVR_Plugin_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/OpenVR_Plugin_ru.html"/>
