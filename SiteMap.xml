@@ -91,6 +91,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/PicoG2Socket_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Hardware/SocketReferenceDesign_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/SocketReferenceDesign_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketReferenceDesign_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/SocketReferenceDesign_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/SocketReferenceDesign_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketReferenceDesign_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Hardware/SocketUsbRadio_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/SocketUsbRadio_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketUsbRadio_ru.html"/>
@@ -209,16 +219,6 @@
 	<loc>https://antilatency.github.io/Terms/Device_Tree_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Tree_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Tree_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Terms/SocketReferenceDesign_en.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/SocketReferenceDesign_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/SocketReferenceDesign_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Terms/SocketReferenceDesign_ru.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/SocketReferenceDesign_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/SocketReferenceDesign_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Terms/Socket_en.html</loc>
