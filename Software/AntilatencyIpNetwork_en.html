@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="en"><head><title>AntilatencyIpNetwork</title><link rel="stylesheet" href="https://antilatency.github.io/3578B697FAF563F057DCF20D5FD636DD.css"><script src="https://antilatency.github.io/52205B2B96E6760B3F3CE9ED1FD4DF55.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"><meta property="og:title" content="AntilatencyIpNetwork"><meta property="og:title" content="AntilatencyIpNetwork"><meta property="og:description" content="AntilatencyIpNetwork is a cross-platform C++ library with AntilatencyApi interface. The main purpose is to exchange position data from Antilatency Trackers (Alt) between devices, in the same local network (LAN). It supports Windows, Linux (desktop and Raspberry Pi) and Android OS."><meta property="og:url" content="https://antilatency.github.io/Software/AntilatencyIpNetwork_en.html"><meta property="twitter:card" content="summary"></head><body class="TemplateRegularMaterial"><script>Behaviour.Initialize("TemplateLeftSideMenu",800,64)</script><nav class="menu LeftSideMenu" id="LeftSideMenu"><a class="Text AntilatencyLogo" href="https://antilatency.github.io/Root/Index_en.html" title="" style="font-family: 'antilatency' !important;"><span style="color: #ACC435">a</span><span style="color: #FFFFFF">l</span></a><a class="Text" href="https://antilatency.github.io/Root/Index_en.html" title="">Antilatency</a><a class="Text" href="https://antilatency.github.io/Terms/Antilatency_Device_Network_en.html" title="Antilatency Device Network - eng.">Antilatency Device Network</a><a class="Text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="The Alt is an optical inertial tracking module. The Alt is located on objects being tracked and determines their position in space in relation to infrared markers.             Alt is supplied as a bundle with a wired SocketUsb.">Alt</a><a class="Text" href="https://antilatency.github.io/Internal/Debug_en.html" title="На этой странице странице некоторые примеры использования движка.">Debug</a><a class="Text" href="https://antilatency.github.io/Csml/CsmlPredefined/Diagnostics_en.html" title="This page provide diagnostics information about website. This page is auto generated.">Diagnostics</a><a class="Text" href="https://antilatency.github.io/Software/AntilatencyService_en.html" title="A utility allows to update the firmware and to look through the device tree. Besides, the AntilatencyService keeps in the settings of the tracking areas and placements for different VR gadgets.">AntilatencyService</a><a class="Text" href="https://antilatency.github.io/Store/PresetEditor_en.html" title="Welcome to Antilatency store!">Store</a><a class="Text" href="https://antilatency.github.io/Sdk/Configurator_en.html" title="На этой странице вы сможете &quot;Приготовить&quot; Sdk, выбрав платформу и добавив ингредиенты на ваш вкус">Sdk</a><a class="Text" href="https://antilatency.github.io/Api_en.html" title="">Api</a></nav><div class="Content" id="Content"><div class="Header"><h1 class="Title">AntilatencyIpNetwork</h1><div class="Text">AntilatencyIpNetwork is a cross-platform C++ library with AntilatencyApi interface. The main purpose is to exchange position data from Antilatency Trackers (<a class="Text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="The Alt is an optical inertial tracking module. The Alt is located on objects being tracked and determines their position in space in relation to infrared markers.             Alt is supplied as a bundle with a wired SocketUsb.">Alt</a>) between devices, in the same local network (LAN). It supports Windows, Linux (desktop and Raspberry Pi) and Android OS.</div></div><div class="Section"><h2 class="Title" id="API">API<a class="Link" href="#API" title="Heading anchor"></a></h2><div class="Text">Library interface build around NetworkServer object. NetworkServer can send and receive states (positions, errors, GPIO etc) of network devices in the same multicast group.</div><div class="Text">ILibrary interface produces INetworkServer interface (getNetworkServer method). INetworkServer can “listen” the network to get messages from other devices in LAN (startMessageListening then getDeviceList methods). Also it can send message with data from all connected position trackers (sendStateMessages method).</div><div class="Text">StateMessage structure represents a tracking data: data source name (32 bytes UTF8 string), Cartesian coordinates (in meters, float), rotation quaternion components (float) and error code. To get fixed size representation of a standard string for the data source name (StateMessage.rawTag) you need to use getRawTagFromString method from ILibrary interface.</div><div class="code csharp"><pre>
+<span class="keyword">namespace</span> Antilatency.IpNetwork {
+
+    [Documentation.Summary(<span class="string">&quot;Library constants&quot;</span>)]
+    <span class="keyword">public</span> <span class="keyword">class</span> Constants
+        {
+            <span class="keyword">public</span> <span class="keyword">int</span> MajorVersion = <span class="number">1</span>;
+            <span class="keyword">public</span> <span class="keyword">int</span> MinorVersion = <span class="number">1</span>;
+            <span class="keyword">public</span> <span class="keyword">int</span> PatchVersion = <span class="number">0</span>;
+            <span class="keyword">public</span> <span class="keyword">string</span> DefaultIfaceAddress = <span class="string">&quot;0.0.0.0&quot;</span>;
+            <span class="keyword">public</span> <span class="keyword">string</span> DefaultTargetAddress = <span class="string">&quot;239.255.111.2&quot;</span>;
+            <span class="keyword">public</span> <span class="keyword">int</span> DefaultTrackingPort = <span class="number">56789</span>;
+            <span class="keyword">public</span> <span class="keyword">int</span> DefaultCommandPort = <span class="number">8889</span>;
+        }
+
+        [Documentation.Summary(<span class="string">&quot;CommandName:CommandValue pair interface&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">enum</span> CommandKey : <span class="keyword">byte</span>
+        {
+            None = <span class="number">0</span>,
+            Custom,
+            SetEnvinromentCode,
+            SetSendingRate,
+        }
+
+        [Guid(<span class="string">&quot;F413ABA1-5C2F-41F1-B1B0-7309676A6C4A&quot;</span>)]
+        [Documentation.Summary(<span class="string">&quot;CommandName:CommandValue pair interface&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">interface</span> ICommandMessage : Antilatency.InterfaceContract.IInterface
+        {
+            <span class="keyword">string</span> id();
+            <span class="keyword">string</span> ipAddress();
+            <span class="keyword">string</span> error();
+            <span class="keyword">long</span> timeStamp();
+            CommandKey key();
+            <span class="keyword">string</span> value();
+        }
+
+
+        [Guid(<span class="string">&quot;2C31F909-8B65-48B8-838F-E7EC389AAA29&quot;</span>)]
+        [Documentation.Summary(<span class="string">&quot;Command queue&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">interface</span> IConstCommandList : Antilatency.InterfaceContract.IInterface
+        {
+            <span class="keyword">uint</span> size();
+            ICommandMessage <span class="keyword">get</span>(<span class="keyword">uint</span> index);
+        }
+
+        [Documentation.Summary(<span class="string">&quot;Standard error codes&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">enum</span> ErrorType : <span class="keyword">byte</span>
+        {
+            None = <span class="number">0</span>,
+            Unknown,
+            AdnLibraryLoad,
+            AltTrackingLibraryLoad,
+            TrackingNodeNotFound,
+            TrackingNodeNotReady,
+            CotaskConstructor,
+            TrackingTaskRestartMessage,
+            TrakingCotaskConstructFailed,
+            AltEnvironmentArbitrary2D,
+            ReadTagProperty,
+            ReadSerialNumber,
+            StartTrackingTaskFailed,
+            GetTrackerStateFailed,
+            SetupGpio,
+        }
+
+        [Documentation.Summary(<span class="string">&quot;UTF8 32 bytes length string representation&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">struct</span> RawString32
+        {
+            <span class="keyword">public</span> Antilatency.InterfaceContract.Memory.Memory32 data;
+        }
+
+        [Documentation.Summary(<span class="string">&quot;Fixed size structure for tracking information&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">struct</span> StateMessage
+        {
+            <span class="keyword">public</span> RawString32 rawTag;
+            <span class="keyword">public</span> <span class="keyword">float</span> positionX;
+            <span class="keyword">public</span> <span class="keyword">float</span> positionY;
+            <span class="keyword">public</span> <span class="keyword">float</span> positionZ;
+            <span class="keyword">public</span> <span class="keyword">float</span> rotationX;
+            <span class="keyword">public</span> <span class="keyword">float</span> rotationY;
+            <span class="keyword">public</span> <span class="keyword">float</span> rotationZ;
+            <span class="keyword">public</span> <span class="keyword">float</span> rotationW;
+            <span class="keyword">public</span> ErrorType trackerError;
+        }
+
+        <span class="keyword">public</span> <span class="keyword">struct</span> GpioPinState
+        {
+            <span class="keyword">int</span> number;
+            <span class="keyword">int</span> value;
+        }
+
+        [Guid(<span class="string">&quot;CC3466E2-1D33-4564-8754-476D9D53C3D2&quot;</span>)]
+        [Documentation.Summary(<span class="string">&quot;Network enabled device information&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">interface</span> IDeviceState : Antilatency.InterfaceContract.IInterface
+        {
+            <span class="keyword">string</span> id();
+            <span class="keyword">string</span> sessionId();
+            <span class="keyword">string</span> ipAddress();
+            <span class="keyword">string</span> deviceError();
+            <span class="keyword">bool</span> newState();
+            <span class="keyword">long</span> packetNumber();
+            <span class="keyword">long</span> timeStamp();
+            <span class="keyword">long</span> latency();
+            GpioPinState[] gpioState();
+            StateMessage[] lastStates();
+        }
+
+        [Guid(<span class="string">&quot;259DB783-92F1-4F4D-BD35-05355423332F&quot;</span>)]
+        [Documentation.Summary(<span class="string">&quot;All devices in network&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">interface</span> IConstDeviceList : Antilatency.InterfaceContract.IInterface
+        {
+            <span class="keyword">uint</span> size();
+            IDeviceState <span class="keyword">get</span>(<span class="keyword">uint</span> index);
+        }
+
+        [Guid(<span class="string">&quot;95416322-9E28-49DC-8850-1665AB4B081E&quot;</span>)]
+        [Documentation.Summary(<span class="string">&quot;Network exchange implementer&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">interface</span> INetworkServer : Antilatency.InterfaceContract.IInterface
+        {
+            <span class="keyword">void</span> sendStateMessages(StateMessage[] stateMessages, GpioPinState[] gpioPins, <span class="keyword">string</span> deviceError);
+            <span class="keyword">void</span> sendCommand(CommandKey command, <span class="keyword">string</span> value);
+
+            <span class="keyword">void</span> startMessageListening();
+            <span class="keyword">void</span> startCommandListening();
+
+            IConstDeviceList getDeviceList();
+            IConstCommandList getCommands();
+        }
+
+        [Guid(<span class="string">&quot;96B0C448-6AE2-4361-AA16-A670033D644A&quot;</span>)]
+        [Documentation.Summary(<span class="string">&quot;Main library interface&quot;</span>)]
+        <span class="keyword">public</span> <span class="keyword">interface</span> ILibrary : Antilatency.InterfaceContract.IInterface
+        {
+            INetworkServer getNetworkServer(
+                                <span class="keyword">string</span> serverId,
+                                <span class="keyword">string</span> ifaceAddress,
+                                <span class="keyword">string</span> targetAddress,
+                                <span class="keyword">int</span> trackingPort,
+                                <span class="keyword">int</span> commandPort
+                                );
+
+            <span class="keyword">long</span> getCurrentTime();
+
+            <span class="keyword">string</span> getTagFromRawTag(RawString32 rawString);
+            RawString32 getRawTagFromString(<span class="keyword">string</span> tag);
+
+            <span class="keyword">string</span> getVersion();
+        }
+
+    }
+</pre></div></div><div class="Section"><h2 class="Title" id="Realization_details">Realization details<a class="Link" href="#Realization_details" title="Heading anchor"></a></h2><div class="Text">A <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol" title="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a> socket is used for network exchange. All data is transmitted to an IP address of a <a href="https://en.wikipedia.org/wiki/Multicast" title="https://en.wikipedia.org/wiki/Multicast">multicast group</a>. The device should join the multicast group to receive data.</div><div class="Text">We suggested to use the default multicast group address:</div><div class="Text"><code>Antilatency::IpNetwork::Constants::DefaultTargetAddress</code> - the one from unassigned part 239.255.0.0/16 of local <a href="https://tools.ietf.org/html/rfc2365" title="https://tools.ietf.org/html/rfc2365">Administratively Scoped Multicast Space</a>.</div></div><div class="Section"><h2 class="Title" id="Example">Example<a class="Link" href="#Example" title="Heading anchor"></a></h2><div class="Text">Headers:</div><div class="code cplusplus"><pre>
+#include &lt;vector&gt;
+#include &lt;<span class="keyword">thread</span>&gt;
+#include &lt;chrono&gt;
+#include &lt;iostream&gt;
+#include &lt;Antilatency.Api.h&gt;
+#include &lt;AntilatencyLibraryLoader/Antilatency.InterfaceContract.LibraryLoader.h&gt;
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[]) {
+</pre></div><div class="Text">Load libraries:</div><div class="code cplusplus"><pre>
+#ifdef __linux__
+        Antilatency::IpNetwork::ILibrary netServiceLibrary = Antilatency::InterfaceContract::getLibraryInterface
+                &lt;Antilatency::IpNetwork::ILibrary&gt;(<span class="string">&quot;/opt/antilatency/lib/libAntilatencyIpNetwork.so&quot;</span>);
+#elif defined(_WIN32)
+        Antilatency::IpNetwork::ILibrary netServiceLibrary = Antilatency::InterfaceContract::getLibraryInterface
+                &lt;Antilatency::IpNetwork::ILibrary&gt;(<span class="string">&quot;AntilatencyIpNetwork&quot;</span>);
+#endif
+</pre></div><div class="Text">Setup NetworkServer:</div><div class="code cplusplus"><pre>
+Antilatency::IpNetwork::INetworkServer netServer 
+    = netServiceLibrary.getNetworkServer(
+        <span class="string">&quot;MAC_ADDR&quot;</span>,
+        Antilatency::IpNetwork::Constants::DefaultIfaceAddress,
+        Antilatency::IpNetwork::Constants::DefaultTargetAddress,
+        Antilatency::IpNetwork::Constants::DefaultTrackingPort
+        );
+
+        netServer.startMessageListening();
+netServer.startCommandListening();
+</pre></div><div class="Text">Main loop:</div><div class="code cplusplus"><pre>
+<span class="keyword">while</span> (<span class="keyword">true</span>) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(16));
+    
+    std::vector&lt;Antilatency::IpNetwork::StateMessage&gt; messages{};
+    Antilatency::IpNetwork::StateMessage emptyMessage{};
+    messages.push_back(emptyMessage);
+    
+    std::vector&lt;Antilatency::IpNetwork::GpioPinState&gt; pins{{25, 1}};
+   
+    netServer.sendStateMessages(messages, pins, &quot;);
+    
+    <span class="keyword">auto</span> providers = netServer.getDeviceList();
+    size_t size = providers.size();
+    <span class="keyword">for</span> (std::size_t index = 0; index &lt; size; index++) {
+        <span class="keyword">auto</span> provider = providers.get(index);
+        std::cout &lt;&lt; <span class="string">&quot;id: &quot;</span> &lt;&lt; provider.id()
+                  &lt;&lt; <span class="string">&quot;; ip: &quot;</span> &lt;&lt; provider.ipAddress()
+                  &lt;&lt; <span class="string">&quot;; c_time: &quot;</span> &lt;&lt; netServiceLibrary.getCurrentTime()
+                  &lt;&lt; <span class="string">&quot;; error: &quot;</span> &lt;&lt; provider.deviceError();
+                  &lt;&lt; std::endl;
+    }
+
+    <span class="keyword">auto</span> commands = netServer.getCommands();
+    <span class="keyword">for</span> (std::size_t index = 0; index&lt;commands.size(); index++) {
+        <span class="keyword">auto</span> command = commands.get(index);
+    std::cout &lt;&lt; <span class="string">&quot;id: &quot;</span> &lt;&lt; command.id()
+                  &lt;&lt; <span class="string">&quot;; ip: &quot;</span> &lt;&lt; command.ipAddress()
+                  &lt;&lt; <span class="string">&quot;; c_time: &quot;</span> &lt;&lt; netServiceLibrary.getCurrentTime()
+                  &lt;&lt; <span class="string">&quot;; error: &quot;</span> &lt;&lt; command.error()
+                  &lt;&lt; <span class="string">&quot;; r_time: &quot;</span> &lt;&lt; command.timeStamp()
+                  &lt;&lt; <span class="string">&quot;; key: &quot;</span> &lt;&lt; Antilatency::enumToString(command.key())
+                  &lt;&lt; <span class="string">&quot;; value: &quot;</span> &lt;&lt; command.<span class="keyword">value</span>()
+                  &lt;&lt; std::endl;
+    }
+}
+
+<span class="keyword">return</span> 0;
+} <span class="comment">//end of main()</span>
+</pre></div></div></div><nav class="language-menu"><a class="Text" href="https://antilatency.github.io/Software/AntilatencyIpNetwork_en.html" title="AntilatencyIpNetwork is a cross-platform C++ library with AntilatencyApi interface. The main purpose is to exchange position data from Antilatency Trackers (Alt) between devices, in the same local network (LAN). It supports Windows, Linux (desktop and Raspberry Pi) and Android OS." onclick="this.href += window.location.hash;">English</a><a class="Text" href="https://antilatency.github.io/Software/AntilatencyIpNetwork_ru.html" title="AntilatencyIpNetwork is a cross-platform C++ library with AntilatencyApi interface. The main purpose is to exchange position data from Antilatency Trackers (Alt) between devices, in the same local network (LAN). It supports Windows, Linux (desktop and Raspberry Pi) and Android OS." onclick="this.href += window.location.hash;">Русский</a></nav><footer class="Footer"><div class="FooterContainer"><div class="Grid"><script>Behaviour.Initialize("Grid",250,[1,2,4])</script><div class="Section"><h2 class="Title" id="Internal">Internal<a class="Link" href="#Internal" title="Heading anchor"></a></h2><div class="Text"><a href="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=175&projectKey=CSML" title="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=175&projectKey=CSML">Jira CSML</a></div><div class="Text"><a href="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=177&projectKey=ALCOM" title="https://antilatency.atlassian.net/secure/RapidBoard.jspa?rapidView=177&projectKey=ALCOM">Jira Antilatency.com</a></div></div><div class="Section"><h2 class="Title" id="Products">Products<a class="Link" href="#Products" title="Heading anchor"></a></h2><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/Alt_en.html" title="The Alt is an optical inertial tracking module. The Alt is located on objects being tracked and determines their position in space in relation to infrared markers.             Alt is supplied as a bundle with a wired SocketUsb.">Alt</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/Bracer_en.html" title="The Bracer is a wireless Socket to track the user's hands designed for an ergonomic fit. Unlike standard VR controllers, the Bracer adds on 6DoF hand tracking while keeping the user's hands free to interact with material objects.">Bracer</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/ExtensionBoard_en.html" title="Pcb for easy using Antilatency Hardware Extension Interface">Antilatency Extension Board</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/HMD_Radio_Socket_en.html" title="The HMD Radio Socket is a wireless Socket that supports both data reception from wireless devices via the Antilatency Radio Protocol and tracking data transmission when placed on the objects being tracked.">HMD Radio Socket</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/PicoG2Socket_en.html" title="The Pico G2 Socket is a wireless Socket designed to track the PicoG2 headset and receive data from wireless devices via the Antilatency Radio Protocol.">Pico G2 Socket</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/SocketReferenceDesign_en.html" title="A development board for Socket with an Alt connector. You can use it as a base to custom your own Socket according to our recommedations.">SocketReferenceDesign</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/Tag_en.html" title="The Alt is a wireless Socket that can be attached to an object or a part of the human body to track them.              The Alt does not track its own position, but relays data from the Alt fitted into it.              The Alt can track material objects and custom controllers, for example dummy guns.">Tag</a></div><div class="Text"><a class="Text" href="https://antilatency.github.io/Hardware/TrackingAreaFloor_en.html" title="Зона трекинга состоит из специальных лент с ИК-маркерами, мягкой плитки и коннекторов. Alt определяет своё положение в пространстве, анализируя расположение маркеров.">Напольная зона трекинга 10m²</a></div></div><div class="Section"><h2 class="Title" id="For_Developers">For Developers<a class="Link" href="#For_Developers" title="Heading anchor"></a></h2><div class="Text"><a class="Text" href="https://antilatency.github.io/Api_en.html" title="">Api</a></div><div class="Text"><a href="https://antilatency.com" title="https://antilatency.com">Tutorials</a></div><div class="Text"><a href="https://antilatency.com" title="https://antilatency.com">Tools</a></div></div><div class="Section"><h2 class="Title" id="Company">Company<a class="Link" href="#Company" title="Heading anchor"></a></h2><div class="Text"><a href="https://antilatency.com" title="https://antilatency.com">About</a></div><div class="Text"><a href="https://antilatency.com" title="https://antilatency.com">Contact Us</a></div><div class="Text"><a href="https://antilatency.com" title="https://antilatency.com">Become a partner</a></div></div></div><div class="Text"><a href="https://antilatency.com" title="https://antilatency.com">Personal data processing policy</a> | <a href="https://antilatency.com" title="https://antilatency.com">Terms of Services</a> | Copyright © 2020, ALT LLC. info@antilatency.com</div></div></footer></body></html>
