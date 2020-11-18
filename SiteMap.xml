@@ -111,6 +111,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketReferenceDesign_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Hardware/SocketUsb_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/SocketUsb_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketUsb_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/SocketUsb_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/SocketUsb_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/SocketUsb_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Hardware/Tag_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/Tag_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/Tag_ru.html"/>
@@ -161,6 +171,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/AntilatencyIpNetwork_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Software/RadioScan_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/RadioScan_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/RadioScan_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Software/RadioScan_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Software/RadioScan_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Software/RadioScan_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Store/PresetEditor_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Store/PresetEditor_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Store/PresetEditor_ru.html"/>
@@ -201,16 +221,6 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Antilatency_Radio_Protocol_ru.html"/>
 	</url>
 	<url>
-	<loc>https://antilatency.github.io/Terms/Device_Properties_en.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Properties_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Properties_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Terms/Device_Properties_ru.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Properties_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Properties_ru.html"/>
-	</url>
-	<url>
 	<loc>https://antilatency.github.io/Terms/Device_Tree_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Device_Tree_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Tree_ru.html"/>
@@ -221,6 +231,46 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Device_Tree_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Terms/Environment_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Environment_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Environment_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Environment_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Environment_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Environment_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Host_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Host_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Host_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Host_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Host_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Host_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Node_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Node_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Node_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Node_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Node_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Node_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Placement_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Placement_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Placement_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Placement_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Placement_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Placement_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Terms/Socket_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Socket_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Socket_ru.html"/>
@@ -229,6 +279,16 @@
 	<loc>https://antilatency.github.io/Terms/Socket_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Socket_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Socket_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Task_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Task_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Task_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Terms/Task_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Terms/Task_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Terms/Task_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/Alt_HMD_Placement_en.html</loc>
@@ -319,16 +379,6 @@
 	<loc>https://antilatency.github.io/Tutorials/PrepareRaspberryPiSdCard_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/PrepareRaspberryPiSdCard_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/PrepareRaspberryPiSdCard_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Tutorials/RadioScan_en.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/RadioScan_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/RadioScan_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Tutorials/RadioScan_ru.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/RadioScan_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/RadioScan_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/Set_Device_Custom_Properties_en.html</loc>
