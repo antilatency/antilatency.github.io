@@ -333,15 +333,23 @@ table > tbody td:empty { border: 1px solid transparent; }
 
 .VideoPlayer .VideoPlayerInner { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; }
 
+.LanguageMenu { transform: translateY(0px); -webkit-transition: transform 300ms ease-in-out; -moz-transition: transform 300ms ease-in-out; -o-transition: transform 300ms ease-in-out; transition: transform 300ms ease-in-out; position: fixed; right: 0; top: 0; z-index: 10; background-color: #8c96a0; opacity: 0.93; color: #081a20; border-radius: 8rem; margin: 1rem 1rem; }
+
+.LanguageMenu.Hide { transform: translateY(-120%); -webkit-transition: transform 300ms ease-in-out; -moz-transition: transform 300ms ease-in-out; -o-transition: transform 300ms ease-in-out; transition: transform 300ms ease-in-out; }
+
+.LanguageMenu > * { display: block; color: inherit; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; text-decoration: none; font-weight: 400; text-align: center; border-radius: 50%; font-size: 0.9rem; }
+
 .TemplateLeftSideMenu > .LeftSideMenu, .TemplateLanding > .LeftSideMenu, .TemplateRegularMaterial > .LeftSideMenu { position: fixed; left: 0; top: 0; height: 100%; width: 260px; z-index: 1000; background-color: white; border-right: 1px solid #ddd; }
 
 .TemplateLeftSideMenu > .LeftSideMenu > *, .TemplateLanding > .LeftSideMenu > *, .TemplateRegularMaterial > .LeftSideMenu > * { display: block; color: inherit; font-weight: 400; text-decoration: none; padding: 16px 28px; }
 
-.TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton, .TemplateLanding > .LeftSideMenu > .HamburgerButton, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton { background-color: inherit; position: absolute; top: 0px; padding: 0px; left: 100%; }
+.TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton, .TemplateLanding > .LeftSideMenu > .HamburgerButton, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton { transform: translateY(0px); -webkit-transition: transform 300ms ease-in-out; -moz-transition: transform 300ms ease-in-out; -o-transition: transform 300ms ease-in-out; transition: transform 300ms ease-in-out; background-color: inherit; position: absolute; top: 0px; padding: 0px; left: 100%; }
 
 .TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton:after, .TemplateLanding > .LeftSideMenu > .HamburgerButton:after, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton:after { position: relative; color: inherit; font-family: "Material Design Icons"; font-size: 2em; content: "\F035C"; border-radius: 50%; padding: 8px; }
 
 .TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton.Checked:after, .TemplateLanding > .LeftSideMenu > .HamburgerButton.Checked:after, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton.Checked:after { visibility: hidden; padding: auto; }
+
+.TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton.Hide, .TemplateLanding > .LeftSideMenu > .HamburgerButton.Hide, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton.Hide { transform: translateY(-100%); -webkit-transition: transform 300ms ease-in-out; -moz-transition: transform 300ms ease-in-out; -o-transition: transform 300ms ease-in-out; transition: transform 300ms ease-in-out; }
 
 .TemplateRegularMaterial .Footer { background-color: #f7f7f7; }
 
@@ -387,11 +395,13 @@ table > tbody td:empty { border: 1px solid transparent; }
 
 .TemplateLeftSideMenu > .LeftSideMenu > *, .TemplateLanding > .LeftSideMenu > *, .TemplateRegularMaterial > .LeftSideMenu > * { display: block; color: inherit; font-weight: 400; text-decoration: none; padding: 16px 28px; }
 
-.TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton, .TemplateLanding > .LeftSideMenu > .HamburgerButton, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton { background-color: inherit; position: absolute; top: 0px; padding: 0px; left: 100%; }
+.TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton, .TemplateLanding > .LeftSideMenu > .HamburgerButton, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton { transform: translateY(0px); -webkit-transition: transform 300ms ease-in-out; -moz-transition: transform 300ms ease-in-out; -o-transition: transform 300ms ease-in-out; transition: transform 300ms ease-in-out; background-color: inherit; position: absolute; top: 0px; padding: 0px; left: 100%; }
 
 .TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton:after, .TemplateLanding > .LeftSideMenu > .HamburgerButton:after, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton:after { position: relative; color: inherit; font-family: "Material Design Icons"; font-size: 2em; content: "\F035C"; border-radius: 50%; padding: 8px; }
 
 .TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton.Checked:after, .TemplateLanding > .LeftSideMenu > .HamburgerButton.Checked:after, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton.Checked:after { visibility: hidden; padding: auto; }
+
+.TemplateLeftSideMenu > .LeftSideMenu > .HamburgerButton.Hide, .TemplateLanding > .LeftSideMenu > .HamburgerButton.Hide, .TemplateRegularMaterial > .LeftSideMenu > .HamburgerButton.Hide { transform: translateY(-100%); -webkit-transition: transform 300ms ease-in-out; -moz-transition: transform 300ms ease-in-out; -o-transition: transform 300ms ease-in-out; transition: transform 300ms ease-in-out; }
 
 .TemplateLanding { /*> .VideoPlayer { max-height: 100%; }*/ }
 
@@ -489,24 +499,20 @@ body { margin: 0; font-family: "Roboto"; font-size: 1rem; font-weight: 400; line
 
 @font-face { font-family: 'Antilatency'; src: url("Fonts/antilatency/antilatency.eot?7274rf"); src: url("Fonts/antilatency/antilatency.eot?7274rf#iefix") format("embedded-opentype"), url("Fonts/antilatency/antilatency.ttf?7274rf") format("truetype"), url("Fonts/antilatency/antilatency.woff?7274rf") format("woff"), url("Fonts/antilatency/antilatency.svg?7274rf#antilatency") format("svg"); font-weight: normal; font-style: normal; font-display: block; }
 
-.base-menu, nav.language-menu, .menu { background-color: #eee; color: #222; }
+.base-menu, .menu { background-color: #eee; color: #222; }
 
-.base-menu > :not(a), nav.language-menu > :not(a), .menu > :not(a) { background-color: transparent; }
+.base-menu > :not(a), .menu > :not(a) { background-color: transparent; }
 
-.base-menu > a:hover, nav.language-menu > a:hover, .menu > a:hover { background-color: #ccc; }
+.base-menu > a:hover, .menu > a:hover { background-color: #ccc; }
 
-.base-menu > a:active, nav.language-menu > a:active, .menu > a:active { background-color: #aaa; }
+.base-menu > a:active, .menu > a:active { background-color: #aaa; }
 
-.base-menu > a, nav.language-menu > a, .menu > a { text-decoration: none; }
+.base-menu > a, .menu > a { text-decoration: none; }
 
 .menu { /*position: fixed; left: 0; top: 0; height: 100%; max-width: $max-menu-width; z-index: 10;     opacity: 0.93; */ }
 
 /*nav.menu > *{ display: block; color: inherit; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;     }*/
 /* @media only screen and (max-width: 1220px) { nav.menu .button{ visibility: visible; } nav.menu:not(.checked) { visibility: hidden; width: 0; } }*/
-nav.language-menu { position: fixed; right: 0; top: 0; z-index: 10; background-color: #8c96a0; opacity: 0.93; color: #081a20; border-radius: 8rem; margin: 1rem 1rem; }
-
-nav.language-menu > * { display: block; color: inherit; padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; text-decoration: none; font-weight: 400; text-align: center; border-radius: 50%; font-size: 0.9rem; }
-
 @keyframes animatedBackgroundPositionVertical { 0% { background-position: 0 0; }
   100% { background-position: 0 100%; } }
 
