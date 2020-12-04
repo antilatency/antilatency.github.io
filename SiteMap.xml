@@ -81,6 +81,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/ExtensionBoard_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Hardware/ExtensionModule_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/ExtensionModule_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/ExtensionModule_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Hardware/ExtensionModule_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/ExtensionModule_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/ExtensionModule_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Hardware/HMD_Radio_Socket_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Hardware/HMD_Radio_Socket_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Hardware/HMD_Radio_Socket_ru.html"/>
