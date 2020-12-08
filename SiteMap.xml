@@ -341,6 +341,16 @@
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/ConfiguringRadioDevices_ru.html"/>
 	</url>
 	<url>
+	<loc>https://antilatency.github.io/Tutorials/Create_New_Environment_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Create_New_Environment_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Create_New_Environment_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/Create_New_Environment_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Create_New_Environment_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Create_New_Environment_ru.html"/>
+	</url>
+	<url>
 	<loc>https://antilatency.github.io/Tutorials/Devkit_Tracking_Area_Setup_en.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Devkit_Tracking_Area_Setup_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Devkit_Tracking_Area_Setup_ru.html"/>
@@ -359,6 +369,16 @@
 	<loc>https://antilatency.github.io/Tutorials/Environment_Editor_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Environment_Editor_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Environment_Editor_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/EnvironmentPowerRouting_en.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/EnvironmentPowerRouting_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/EnvironmentPowerRouting_ru.html"/>
+	</url>
+	<url>
+	<loc>https://antilatency.github.io/Tutorials/EnvironmentPowerRouting_ru.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/EnvironmentPowerRouting_en.html"/>
+		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/EnvironmentPowerRouting_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/Firmware_Update_en.html</loc>
@@ -429,16 +449,6 @@
 	<loc>https://antilatency.github.io/Tutorials/TrackingAreaCeilingSetup_ru.html</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/TrackingAreaCeilingSetup_en.html"/>
 		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/TrackingAreaCeilingSetup_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Tutorials/Tracking_Area_Setup_en.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Tracking_Area_Setup_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Tracking_Area_Setup_ru.html"/>
-	</url>
-	<url>
-	<loc>https://antilatency.github.io/Tutorials/Tracking_Area_Setup_ru.html</loc>
-		<xhtml:link rel="alternate" hreflang="en" href="https://antilatency.github.io/Tutorials/Tracking_Area_Setup_en.html"/>
-		<xhtml:link rel="alternate" hreflang="ru" href="https://antilatency.github.io/Tutorials/Tracking_Area_Setup_ru.html"/>
 	</url>
 	<url>
 	<loc>https://antilatency.github.io/Tutorials/TrackingMinimalDemoCSharp_en.html</loc>
