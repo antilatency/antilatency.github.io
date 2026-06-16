@@ -1,46 +1,62 @@
 function initializeCanvas(canvas, startWavelength, endWavelength, padding=20) {
     
     if (!canvas) {
-        console.error(`Canvas with id "${canvasId}" not found.`);
+        console.error('Canvas not found.');
         return null;
     }
+
     const ctx = canvas.getContext('2d');
 
-    //setup coordinate system to match wavelength range
-    //cord x startWavelength at left, endWavelength at right
-    //cord y from 0 at bottom to 1 at top
+    function getCanvasWidth() {
+        return canvas.logicalWidth || canvas.width;
+    }
+
+    function getCanvasHeight() {
+        return canvas.logicalHeight || canvas.height;
+    }
+
     ctx["getScaledX"] = function(x) {
-        return (x - startWavelength) * (canvas.width - 2 * padding) / (endWavelength - startWavelength) + padding;
+        const width = getCanvasWidth();
+        return (x - startWavelength) * (width - 2 * padding) / (endWavelength - startWavelength) + padding;
     }
+
     ctx["getScaledY"] = function(y) {
-        return canvas.height - padding - y * (canvas.height - 2 * padding);
+        const height = getCanvasHeight();
+        return height - padding - y * (height - 2 * padding);
     }
+
     ctx["moveToScaled"] = function(x, y) {
         this.moveTo(this.getScaledX(x), this.getScaledY(y));
     }
+
     ctx["lineToScaled"] = function(x, y) {
-        this.lineTo(this.getScaledX(x),this.getScaledY(y));
+        this.lineTo(this.getScaledX(x), this.getScaledY(y));
     }
 
     ctx["clear"] = function(backgroundColor='white') {
+        const width = getCanvasWidth();
+        const height = getCanvasHeight();
+
         this.fillStyle = backgroundColor;
-        this.fillRect(0, 0, canvas.width, canvas.height);
+        this.fillRect(0, 0, width, height);
     }
 
     ctx["createColorGradient"] = function() {
         const a = this.getScaledX(startWavelength);
         const b = this.getScaledX(endWavelength);
         const gradient = this.createLinearGradient(a, 0, b, 0);
+
         const gradientColors = [
-            { wavelength: 380, color: { r: 1.0, g: 0.0, b: 1.0, a: 0.0 } }, // Violet invisible
-            { wavelength: 440, color: { r: 0.29, g: 0.0, b: 1.0, a: 1.0 } }, // Blue
-            { wavelength: 490, color: { r: 0.0, g: 1.0, b: 1.0, a: 1.0 } }, // Cyan
-            { wavelength: 510, color: { r: 0.0, g: 1.0, b: 0.0, a: 1.0 } }, // Green
-            { wavelength: 570, color: { r: 1.0, g: 1.0, b: 0.0, a: 1.0 } }, // Yellow
-            { wavelength: 590, color: { r: 1.0, g: 0.65, b: 0.0, a: 1.0 } }, // Orange
-            { wavelength: 620, color: { r: 1.0, g: 0.0, b: 0.0, a: 1.0 } }, // Red
-            { wavelength: 750, color: { r: 1.0, g: 0.0, b: 0.0, a: 0.0 } }  // Deep Red invisible
+            { wavelength: 380, color: { r: 1.0, g: 0.0, b: 1.0, a: 0.0 } },
+            { wavelength: 440, color: { r: 0.29, g: 0.0, b: 1.0, a: 1.0 } },
+            { wavelength: 490, color: { r: 0.0, g: 1.0, b: 1.0, a: 1.0 } },
+            { wavelength: 510, color: { r: 0.0, g: 1.0, b: 0.0, a: 1.0 } },
+            { wavelength: 570, color: { r: 1.0, g: 1.0, b: 0.0, a: 1.0 } },
+            { wavelength: 590, color: { r: 1.0, g: 0.65, b: 0.0, a: 1.0 } },
+            { wavelength: 620, color: { r: 1.0, g: 0.0, b: 0.0, a: 1.0 } },
+            { wavelength: 750, color: { r: 1.0, g: 0.0, b: 0.0, a: 0.0 } }
         ];
+
         for (let i = 0; i < gradientColors.length; i++) {
             const gc = gradientColors[i];
             const t = (gc.wavelength - startWavelength) / (endWavelength - startWavelength);
@@ -49,6 +65,7 @@ function initializeCanvas(canvas, startWavelength, endWavelength, padding=20) {
             const b = Math.round(gc.color.b * 255);
             gradient.addColorStop(t, `rgba(${r}, ${g}, ${b}, ${gc.color.a})`);
         }
+
         return gradient;
     }
 
@@ -68,6 +85,7 @@ function initializeCanvas(canvas, startWavelength, endWavelength, padding=20) {
             const wavelength = spectrum.startWavelength + i * spectrum.wavelengthStep;
             this.lineToScaled(wavelength, spectrum.values[i]);
         }
+
         if (fill) {
             this.lineToScaled(spectrum.startWavelength + (spectrum.values.length - 1) * spectrum.wavelengthStep, 0);
             this.lineToScaled(spectrum.startWavelength, 0);
@@ -81,25 +99,29 @@ function initializeCanvas(canvas, startWavelength, endWavelength, padding=20) {
     }
 
     ctx["drawWavelengthMarkers"] = function(){
+        const width = getCanvasWidth();
+        const height = getCanvasHeight();
+
         const color = 'rgba(255, 255, 255, 0.3)';
         this.strokeStyle = color;
         this.lineWidth = 1;
         this.font = '12px Arial';
         this.fillStyle = color;
         this.textAlign = 'center';
+
         const step = 50;
+
         for(let wl = startWavelength; wl <= endWavelength; wl += step) {
             const x = this.getScaledX(wl);
+
             this.beginPath();
-            this.moveTo(x, canvas.height - padding);
+            this.moveTo(x, height - padding);
             this.lineTo(x, 0);
             this.stroke();
-            this.fillText(wl, x, canvas.height - 5);
+
+            this.fillText(wl, x, height - 5);
         }
     } 
-
-
-
 
     return ctx;    
 }

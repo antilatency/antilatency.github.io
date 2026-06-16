@@ -1,5 +1,3 @@
-
-
 const minTemperature = 1500;
 const maxTemperature = 20000;
 var temperature = 6500;
@@ -10,27 +8,22 @@ var spectrums = {};
 var canvas = null;
 var context = null;
 
-
 let startWavelength = 380;
 let wavelengthCount = 401;
 let wavelengthStep = 1;
 
 let weights = null;
-/*
-let B_RoyalBlueSpectrum = null;
-let B_BlueSpectrum = null;
-let B_CyanSpectrum = null;
-
-let G_CyanSpectrum = null;
-let G_PCLimeSpectrum = null;
-let G_PCAmberSpectrum = null;
-
-let R_PCAmberSpectrum = null;
-let R_PCRedOrangeSpectrum = null;
-let R_PhotoRedSpectrum = null;*/
 
 let channelSpectrums = [];
 let channelDisplayColors = [];
+
+function getCanvasWidth() {
+    return canvas.logicalWidth || canvas.width;
+}
+
+function getCanvasHeight() {
+    return canvas.logicalHeight || canvas.height;
+}
 
 function rgbDisplayColors(rColor, gColor, bColor){
     const rDisplayColor = 'rgba(255,100,100,0.5)';
@@ -80,8 +73,22 @@ function StartCommon(){
 }
 
 function UpdateCommon(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    canvas.logicalWidth = width;
+    canvas.logicalHeight = height;
+
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
     context.clear("black");
     context.drawWavelengthMarkers();
 }
@@ -96,10 +103,12 @@ function StartBlackBody(){
 function UpdateBlackBody(){
     UpdateCommon();
 
+    const width = getCanvasWidth();
+    const height = getCanvasHeight();
+
     const gradient = context.createColorGradient();
 
     var blackbodySpectrum = createBlackbodySpectrum(temperature);
-    
     var max = blackbodySpectrum.multiply(weights).maxValue() / 0.8;
     
     blackbodySpectrum = createBlackbodySpectrum(temperature).divide(max);
@@ -123,7 +132,7 @@ function UpdateBlackBody(){
 
     var ssi = combined.spectrumSimilarityIndex(blackbodySpectrum);
 
-    const isMobile = canvas.width < 768;
+    const isMobile = width < 768;
 
     let color = colorTemperatureToRGB(temperature);
 
@@ -139,34 +148,33 @@ function UpdateBlackBody(){
     if (isMobile) {
         context.textAlign = 'center';
 
-        const bottomY = canvas.height - 24;
-        const gap = canvas.width / 4;
+        const bottomY = height - 24;
+        const gap = width / 4;
 
-        context.font = '12px Arial';
+        context.font = 'bold 14px Arial';
         context.fillText(textB, gap * 0.65, bottomY);
         context.fillText(textG, gap * 1.45, bottomY);
         context.fillText(textR, gap * 2.25, bottomY);
 
-        context.font = '16px Arial';
+        context.font = 'bold 18px Arial';
         context.fillText(textTemp, gap * 3.25, bottomY);
     } else {
         context.textAlign = 'right';
 
         context.font = '24px Arial';
-        context.fillText(textTemp, canvas.width - 32, canvas.height * 0.9);
+        context.fillText(textTemp, width - 32, height * 0.9);
 
         context.font = '16px Arial';
 
         const lineHeight = 24;
-        const x = canvas.width - 32;
-        const y = canvas.height * 0.88;
+        const x = width - 32;
+        const y = height * 0.88;
 
         context.fillText(textR, x, y - lineHeight);
         context.fillText(textG, x, y - lineHeight * 2);
         context.fillText(textB, x, y - lineHeight * 3);
     }
 }
-
 
 function StartRGB(){
     StartCommon();
@@ -177,6 +185,9 @@ function StartRGB(){
 
 function UpdateRGB(){
     UpdateCommon();
+
+    const width = getCanvasWidth();
+    const height = getCanvasHeight();
 
     const gradient = context.createColorGradient();
     
@@ -203,32 +214,31 @@ function UpdateRGB(){
     let textG = `G:${channelG.toFixed(2)}`;
     let textB = `B:${channelB.toFixed(2)}`;
 
-    const isMobile = canvas.width < 768;
+    const isMobile = width < 768;
 
     if (isMobile) {
-    context.textAlign = 'center';
-    context.font = 'bold 16px Arial';
+        context.textAlign = 'center';
+        context.font = 'bold 16px Arial';
 
-    const bottomY = canvas.height - 30;
+        const bottomY = height - 30;
 
-    const bX = canvas.width * 0.22;
-    const gX = canvas.width * 0.50;
-    const rX = canvas.width * 0.78;
+        const bX = width * 0.22;
+        const gX = width * 0.50;
+        const rX = width * 0.78;
 
-    context.fillText(textB, bX, bottomY);
-    context.fillText(textG, gX, bottomY);
-    context.fillText(textR, rX, bottomY);
-} else {
-    context.textAlign = 'right';
-    context.font = '24px Arial';
+        context.fillText(textB, bX, bottomY);
+        context.fillText(textG, gX, bottomY);
+        context.fillText(textR, rX, bottomY);
+    } else {
+        context.textAlign = 'right';
+        context.font = '24px Arial';
 
-    const x = canvas.width - 32;
-    const y = canvas.height * 0.9;
-    const lineHeight = 30;
+        const x = width - 32;
+        const y = height * 0.9;
+        const lineHeight = 30;
 
-    context.fillText(textR, x, y);
-    context.fillText(textG, x, y - lineHeight);
-    context.fillText(textB, x, y - lineHeight * 2);
-}
-
+        context.fillText(textR, x, y);
+        context.fillText(textG, x, y - lineHeight);
+        context.fillText(textB, x, y - lineHeight * 2);
+    }
 }
