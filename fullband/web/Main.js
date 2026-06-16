@@ -127,23 +127,52 @@ function UpdateBlackBody(){
 
     var ssi = combined.spectrumSimilarityIndex(blackbodySpectrum);
 
+    const isMobile = canvas.width < 768;
+
+    const tempFontSize = isMobile ? 16 : 24;
+    const channelFontSize = isMobile ? 12 : 16;
+    const lineHeight = isMobile ? 18 : 24;
+    const rightPadding = isMobile ? 16 : 32;
 
     let color = colorTemperatureToRGB(temperature);
-    context.font = '24px Arial';
+
     context.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
     context.textAlign = 'right';
-    context.fillText(Math.round(temperature) + 'K', canvas.width - 22, canvas.height*0.9);
-    context.font = '16px Arial';
+
+    context.font = `${tempFontSize}px Arial`;
+    context.fillText(
+    Math.round(temperature) + 'K',
+    canvas.width - rightPadding,
+    canvas.height * 0.9
+);
+
+    context.font = `${channelFontSize}px Arial`;
 
     var maxChannel = Math.max(channels[0], channels[1], channels[2]);
-    let textR = `R:${(channels[0] / maxChannel).toFixed(2)}`
-    let textG = `G:${(channels[1] / maxChannel).toFixed(2)}`
+
+    let textR = `R:${(channels[0] / maxChannel).toFixed(2)}`;
+    let textG = `G:${(channels[1] / maxChannel).toFixed(2)}`;
     let textB = `B:${(channels[2] / maxChannel).toFixed(2)}`;
 
-    const lineHeight = 24;
-    context.fillText(textR, canvas.width - 32, canvas.height*0.88 - lineHeight);
-    context.fillText(textG, canvas.width - 32, canvas.height*0.88 - lineHeight * 2);
-    context.fillText(textB, canvas.width - 32, canvas.height*0.88 - lineHeight * 3);
+const channelTextY = canvas.height * 0.88;
+
+context.fillText(
+    textR,
+    canvas.width - rightPadding,
+    channelTextY - lineHeight
+);
+
+context.fillText(
+    textG,
+    canvas.width - rightPadding,
+    channelTextY - lineHeight * 2
+);
+
+context.fillText(
+    textB,
+    canvas.width - rightPadding,
+    channelTextY - lineHeight * 3
+);
 
 }
 
