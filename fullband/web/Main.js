@@ -98,14 +98,11 @@ function UpdateBlackBody(){
 
     const gradient = context.createColorGradient();
 
-    var blackbodySpectrum = createBlackbodySpectrum(temperature)
+    var blackbodySpectrum = createBlackbodySpectrum(temperature);
     
     var max = blackbodySpectrum.multiply(weights).maxValue() / 0.8;
     
-    //write temperature text on canvas
-    
-
-    var blackbodySpectrum = createBlackbodySpectrum(temperature).divide(max);
+    blackbodySpectrum = createBlackbodySpectrum(temperature).divide(max);
     
     var channels = fitChannelsToSpectrum(blackbodySpectrum, weights, ...channelSpectrums);
 
@@ -117,7 +114,6 @@ function UpdateBlackBody(){
 
     let combined = scaledChannelSpectrums.reduce((acc, spectrum) => acc.add(spectrum));
 
-    //let combined = r.add(g).add(b);
     context.globalAlpha = 0.5;
     context.drawSpectrum(combined, gradient, 1, true);
     context.globalAlpha = 1;
@@ -129,51 +125,46 @@ function UpdateBlackBody(){
 
     const isMobile = canvas.width < 768;
 
-    const tempFontSize = isMobile ? 16 : 24;
-    const channelFontSize = isMobile ? 12 : 16;
-    const lineHeight = isMobile ? 18 : 24;
-    const rightPadding = isMobile ? 16 : 32;
-
     let color = colorTemperatureToRGB(temperature);
 
     context.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
-    context.textAlign = 'right';
-
-    context.font = `${tempFontSize}px Arial`;
-    context.fillText(
-    Math.round(temperature) + 'K',
-    canvas.width - rightPadding,
-    canvas.height * 0.9
-);
-
-    context.font = `${channelFontSize}px Arial`;
 
     var maxChannel = Math.max(channels[0], channels[1], channels[2]);
 
     let textR = `R:${(channels[0] / maxChannel).toFixed(2)}`;
     let textG = `G:${(channels[1] / maxChannel).toFixed(2)}`;
     let textB = `B:${(channels[2] / maxChannel).toFixed(2)}`;
+    let textTemp = `${Math.round(temperature)}K`;
 
-const channelTextY = canvas.height * 0.88;
+    if (isMobile) {
+        context.textAlign = 'center';
 
-context.fillText(
-    textR,
-    canvas.width - rightPadding,
-    channelTextY - lineHeight
-);
+        const bottomY = canvas.height - 24;
+        const gap = canvas.width / 4;
 
-context.fillText(
-    textG,
-    canvas.width - rightPadding,
-    channelTextY - lineHeight * 2
-);
+        context.font = '12px Arial';
+        context.fillText(textB, gap * 0.65, bottomY);
+        context.fillText(textG, gap * 1.45, bottomY);
+        context.fillText(textR, gap * 2.25, bottomY);
 
-context.fillText(
-    textB,
-    canvas.width - rightPadding,
-    channelTextY - lineHeight * 3
-);
+        context.font = '16px Arial';
+        context.fillText(textTemp, gap * 3.25, bottomY);
+    } else {
+        context.textAlign = 'right';
 
+        context.font = '24px Arial';
+        context.fillText(textTemp, canvas.width - 32, canvas.height * 0.9);
+
+        context.font = '16px Arial';
+
+        const lineHeight = 24;
+        const x = canvas.width - 32;
+        const y = canvas.height * 0.88;
+
+        context.fillText(textR, x, y - lineHeight);
+        context.fillText(textG, x, y - lineHeight * 2);
+        context.fillText(textB, x, y - lineHeight * 3);
+    }
 }
 
 
@@ -188,7 +179,6 @@ function UpdateRGB(){
     UpdateCommon();
 
     const gradient = context.createColorGradient();
-
     
     var channels = [channelR, channelG, channelB];
 
@@ -200,27 +190,45 @@ function UpdateRGB(){
 
     let combined = scaledChannelSpectrums.reduce((acc, spectrum) => acc.add(spectrum));
 
-    //let combined = r.add(g).add(b);
     context.globalAlpha = 0.5;
     context.drawSpectrum(combined, gradient, 1, true);
     context.globalAlpha = 1;
     context.drawSpectrum(combined, gradient, 3, false);
 
-
-
-
     let color = colorTemperatureToRGB(temperature);
-    context.font = '24px Arial';
+
     context.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
+
+    let textR = `R:${channelR.toFixed(2)}`;
+    let textG = `G:${channelG.toFixed(2)}`;
+    let textB = `B:${channelB.toFixed(2)}`;
+
+    const isMobile = canvas.width < 768;
+
+    if (isMobile) {
+    context.textAlign = 'center';
+    context.font = 'bold 16px Arial';
+
+    const bottomY = canvas.height - 30;
+
+    const bX = canvas.width * 0.22;
+    const gX = canvas.width * 0.50;
+    const rX = canvas.width * 0.78;
+
+    context.fillText(textB, bX, bottomY);
+    context.fillText(textG, gX, bottomY);
+    context.fillText(textR, rX, bottomY);
+} else {
     context.textAlign = 'right';
-    let textR = `R:${(channelR).toFixed(2)}`
-    let textG = `G:${(channelG).toFixed(2)}`
-    let textB = `B:${(channelB).toFixed(2)}`;
+    context.font = '24px Arial';
 
-    context.fillText(textR, canvas.width - 32, canvas.height*0.9);
-    context.fillText(textG, canvas.width - 32, canvas.height*0.9 - 30);
-    context.fillText(textB, canvas.width - 32, canvas.height*0.9 - 60);
+    const x = canvas.width - 32;
+    const y = canvas.height * 0.9;
+    const lineHeight = 30;
 
-
+    context.fillText(textR, x, y);
+    context.fillText(textG, x, y - lineHeight);
+    context.fillText(textB, x, y - lineHeight * 2);
+}
 
 }
