@@ -60,22 +60,24 @@
 
             //setup dragging to change temperature
             setupSlideHandler(canvas, (v)=>{
-                var width = canvas.width;
-                if (v.startX < (0.3 * width)) {
-                    channelB -= v.deltaY * 0.001;
-                    if (channelB < 0) channelB = 0;
-                    if (channelB > 1) channelB = 1;
-                } else if (v.startX < (0.6 * width)) {
-                    channelG -= v.deltaY * 0.001;
-                    if (channelG < 0) channelG = 0;
-                    if (channelG > 1) channelG = 1;
-                } else {
-                    channelR -= v.deltaY * 0.001;
-                    if (channelR < 0) channelR = 0;
-                    if (channelR > 1) channelR = 1;
-                }
-                hideElementsById('hint');
-                UpdateRGB();
+    var width = canvas.logicalWidth || canvas.clientWidth;
+
+    if (v.startX < (0.3 * width)) {
+        channelB -= v.deltaY * 0.001;
+        if (channelB < 0) channelB = 0;
+        if (channelB > 1) channelB = 1;
+    } else if (v.startX < (0.6 * width)) {
+        channelG -= v.deltaY * 0.001;
+        if (channelG < 0) channelG = 0;
+        if (channelG > 1) channelG = 1;
+    } else {
+        channelR -= v.deltaY * 0.001;
+        if (channelR < 0) channelR = 0;
+        if (channelR > 1) channelR = 1;
+    }
+
+    hideElementsById('hint');
+    UpdateRGB();
             });
 
             window.addEventListener("resize", UpdateRGB);

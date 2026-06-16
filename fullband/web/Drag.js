@@ -7,11 +7,14 @@ function setupSlideHandler(element, callback) {
 
     // --- helpers ---
     function getPos(e) {
-        if (e.touches && e.touches.length > 0) {
-            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }
-        return { x: e.clientX, y: e.clientY };
-    }
+    const rect = element.getBoundingClientRect();
+    const point = e.touches && e.touches.length > 0 ? e.touches[0] : e;
+
+    return {
+        x: point.clientX - rect.left,
+        y: point.clientY - rect.top
+    };
+}
 
     function start(e) {
         const pos = getPos(e);
