@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antilatency Light - Black Body</title>
+    <script src="Spectrum.js"></script>
+    <script src="Loader.js"></script>
+    <script src="Canvas.js"></script>
+    <script src="BlackBodySpectrum.js"></script>
+    <script src="Solver.js"></script>
+    <script src="Drag.js"></script>
+    <script src="ShowHide.js"></script>
+    <script src="https://www.lactame.com/lib/ml/6.0.0/ml.min.js"></script>
+    <link rel="stylesheet" href="Style.css">
+    <script src="Main.js"></script>
+</head>
+<body>
+
+    
+    <canvas id="canvas" class="canvas" style="display: none;"></canvas>
+    <div id="error" class="error" style="display: none;"></div>
+    <div id="hint" style="visibility: hidden; background-color: white;"
+    class="icon-hand-horizontal slide-hint slide-hint-animation-horizontal center"></div>
+
+
+
+    <script>
+        
+
+        const hash = window.location.hash.substring(1);
+        console.log('Hash:', hash);
+
+        loadSpectrums([
+            'Spectrums/RoyalBlue.spectrum',
+            'Spectrums/Blue.spectrum',
+            'Spectrums/Cyan.spectrum',
+            'Spectrums/PCLime.spectrum',
+            'Spectrums/PCAmber.spectrum',
+            'Spectrums/PCRedOrange.spectrum',
+            'Spectrums/PhotoRed.spectrum',
+        ], (_spectrums, error) => {
+            if (error) {
+                showElementsById('error')
+                    .textContent = 'Error loading spectrums: ' + error.message;
+                return;
+            }
+            spectrums = _spectrums;
+
+            StartBlackBody();
+            showElementsById('hint');
+            UpdateBlackBody();
+
+            //setup dragging to change temperature
+            setupSlideHandler(canvas, (v)=>{
+                temperature *= Math.pow(1.002, v.deltaX);
+                if(temperature < minTemperature) temperature = minTemperature;
+                if(temperature > maxTemperature) temperature = maxTemperature;
+                hideElementsById('hint');
+                UpdateBlackBody();
+            });
+
+            window.addEventListener("resize", UpdateBlackBody);
+        });
+    </script>
+</body>
+</html>
