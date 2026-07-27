@@ -1,0 +1,71 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v6
+
+      - name: Check out Antilatency.Light web source
+        uses: actions/checkout@v6
+        with:
+          repository: antilatency/Antilatency.Light
+          ref: main
+          ssh-key: ${{ secrets.ANTILATENCY_LIGHT_DEPLOY_KEY }}
+          sparse-checkout: web
+          path: .pages-source
+
+      - name: Prepare static site
+        shell: bash
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.pages-source/' \
+            --exclude='_site/' \
+            ./ _site/
+
+          mkdir -p _site/fullband/web
+          rsync -a \
+            --exclude='.vscode/' \
+            .pages-source/web/ _site/fullband/web/
+
+          test -f _site/fullband/web/AntilatencyLightRGB.html
+          test -f _site/fullband/web/AntilatencyLightBlackBody.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
